@@ -1,0 +1,4 @@
+<TextureAtlas imagePath="SB_LB_Information_Header.png">
+	<SubTexture name="LB_Information_Header.png" x="0" y="0" width="620" height="94" half="0"/>
+</TextureAtlas>
+

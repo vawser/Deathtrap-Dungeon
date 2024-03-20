@@ -1,0 +1,4 @@
+<TextureAtlas imagePath="SB_LB_Interface.png">
+	<SubTexture name="XXX.png" x="188" y="0" width="184" height="184" half="0"/>
+</TextureAtlas>
+

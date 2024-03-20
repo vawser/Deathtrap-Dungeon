@@ -1,0 +1,4 @@
+<TextureAtlas imagePath="SB_LB_Effect_Header.png">
+	<SubTexture name="LB_Effect_Header.png" x="0" y="0" width="620" height="94" half="0"/>
+</TextureAtlas>
+
