@@ -30,11 +30,11 @@ $Event(0, Default, function() {
     InitializeEvent(0, 9820, 8820, 4820, 3600);
     InitializeEvent(0, 1020, 0);
     InitializeEvent(0, 9945, 0);
-    InitializeEvent(0, 1400, 0);
-    InitializeEvent(0, 1401, 0);
-    InitializeEvent(0, 1410, 60804, 4, 1000, 11100785, 11102180);
-    InitializeEvent(0, 1411, 60808, 8, 1001, 39200700, 39202160, 1052380260, 1252382699, 1045520730, 1045522170);
-    InitializeEvent(0, 1412, 60823, 53, 1002, 1050560700, 1050562140);
+    //InitializeEvent(0, 1400, 0);
+    //InitializeEvent(0, 1401, 0);
+    //InitializeEvent(0, 1410, 60804, 4, 1000, 11100785, 11102180);
+    //InitializeEvent(0, 1411, 60808, 8, 1001, 39200700, 39202160, 1052380260, 1252382699, 1045520730, 1045522170);
+    //InitializeEvent(0, 1412, 60823, 53, 1002, 1050560700, 1050562140);
     InitializeEvent(0, 1600, 62010, 63010, 1042371690, 1042371691);
     InitializeEvent(1, 1600, 62011, 63011, 1044321690, 1044321691);
     InitializeEvent(2, 1600, 62012, 63012, 1045371690, 1045371691);
@@ -6573,26 +6573,7 @@ $Event(9950, Default, function(X0_4, X4_4) {
 // Deathtrap Dungeon: Core
 //-----------------------------------
 $Event(10000, Default, function() {
-    InitializeEvent(0, 10001, 0);
-    InitializeEvent(0, 10002, 0);
-});
-
-// Player Death Monitor
-$Event(10001, Default, function() {
-    WaitFor(CharacterRatioHasSpEffect(10000, 10000100, 0, 1));
-    SetEventFlag(0, 1047610010, ON);
-});
-
-// Player Failure Warp
-$Event(10002, Default, function() {
-    EndIf(EventFlag(1047610011));
     
-    if(EventFlag(1047610010))
-    {
-        SetEventFlag(0, 1047610011, ON);
-        WarpPlayer(45, 2, 0, 0, 45020201, -1);
-        SetPlayerRespawnPoint(45020301);
-    }
 });
 
 //-----------------------------------

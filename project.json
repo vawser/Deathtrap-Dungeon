@@ -2,7 +2,10 @@
   "ProjectName": "Deathtrap-Dungeon",
   "GameRoot": "F:\\SteamLibrary\\steamapps\\common\\ELDEN RING\\Game",
   "GameType": 8,
-  "PinnedParams": [],
+  "PinnedParams": [
+    "WeatherAssetReplaceParam",
+    "WeatherAssetCreateParam"
+  ],
   "PinnedRows": {},
   "PinnedFields": {},
   "UseLooseParams": false,

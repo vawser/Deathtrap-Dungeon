@@ -9,7 +9,14 @@
     },
     {
       "id": "m10_01_00_00",
-      "name": "Deathtrap Dungeon",
+      "name": "Chapel of Anticipation",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "m45_02_00_00",
+      "name": "Trial of Champions",
       "tags": [
         ""
       ]
