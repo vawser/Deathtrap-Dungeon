@@ -6575,6 +6575,9 @@ $Event(9950, Default, function(X0_4, X4_4) {
 $Event(10000, Default, function() {
     InitializeEvent(0, 10010, 0); // Trial of Champions warp
     InitializeEvent(0, 10100, 0); // Level Warp logic
+    
+    InitializeEvent(0, 10200, 0); // Corpse Treasure logic
+    InitializeEvent(0, 10300, 0); // Chest Treasure logic
 });
 
 // Trial of Champions Warp
@@ -6587,8 +6590,234 @@ $Event(10010, Default, function() {
 
 // Level Warp logic
 $Event(10100, Default, function() {
+    EndIf(EventFlag(1047590011));
+    
     WaitFor(EventFlag(1047590010));
     SetEventFlag(0, 1047590010, OFF);
+    
+    // All dungeons visited, player wins, warp to final area
+    if(EventFlag(1047590100) 
+        && EventFlag(1047590101) 
+        && EventFlag(1047590102) 
+        && EventFlag(1047590103) 
+        && EventFlag(1047590104)
+        && EventFlag(1047590105) 
+        && EventFlag(1047590106) 
+        && EventFlag(1047590107) 
+        && EventFlag(1047590108)
+        && EventFlag(1047590109) 
+        && EventFlag(1047590110) 
+        && EventFlag(1047590111) 
+        && EventFlag(1047590112)
+        && EventFlag(1047590113) 
+        && EventFlag(1047590114) 
+        && EventFlag(1047590115) 
+        && EventFlag(1047590116)
+        && EventFlag(1047590117) 
+        && EventFlag(1047590118) 
+        && EventFlag(1047590119) 
+        && EventFlag(1047590120)
+        )
+    {
+        SetEventFlag(0, 1047590011, ON);
+        // Trial of Champions warp (for now)
+        WarpPlayer(45, 2, 0, 0, 45020200, 450100);
+    }
+    
+    
+    // Otherwise, roll for the next dungeon
+    BatchSetEventFlags(1047590200, 1047590220, OFF);
+    RandomlySetEventFlagInRange(1047590200, 1047590220, ON);
+    
+    // First Cascade
+    InitializeEvent(0, 10101, 1047590100, 1047590200, 1047590201); // Tombsward
+    InitializeEvent(1, 10101, 1047590101, 1047590201, 1047590202); // Impaler
+    InitializeEvent(2, 10101, 1047590102, 1047590202, 1047590203); // Stormfoot
+    InitializeEvent(3, 10101, 1047590103, 1047590203, 1047590204); // Road's End
+    InitializeEvent(4, 10101, 1047590104, 1047590204, 1047590205); // Murkwater
+    InitializeEvent(5, 10101, 1047590105, 1047590205, 1047590206); // Black Knife
+    InitializeEvent(6, 10101, 1047590106, 1047590206, 1047590207); // Cliffbottom
+    InitializeEvent(7, 10101, 1047590107, 1047590207, 1047590208); // Wyndham
+    InitializeEvent(8, 10101, 1047590108, 1047590208, 1047590209); // Sainted Hero's Grave
+    InitializeEvent(9, 10101, 1047590109, 1047590209, 1047590210); // Gelmir Hero's Grave
+    InitializeEvent(10, 10101, 1047590110, 1047590210, 1047590211); // Azuria Hero's Grave
+    InitializeEvent(11, 10101, 1047590111, 1047590211, 1047590212); // Deathtouched
+    InitializeEvent(12, 10101, 1047590112, 1047590212, 1047590213); // Unsightly
+    InitializeEvent(13, 10101, 1047590113, 1047590213, 1047590214); // Auriza Side Tomb
+    InitializeEvent(14, 10101, 1047590114, 1047590214, 1047590215); // Minor Erdtree
+    InitializeEvent(15, 10101, 1047590115, 1047590215, 1047590216); // Caelid
+    InitializeEvent(16, 10101, 1047590116, 1047590216, 1047590217); // War-Dead
+    InitializeEvent(17, 10101, 1047590117, 1047590217, 1047590218); // Giant-Conquering
+    InitializeEvent(18, 10101, 1047590118, 1047590218, 1047590219); // Giants' Mountaintop
+    InitializeEvent(19, 10101, 1047590119, 1047590219, 1047590220); // Consecrated Snowfield
+    InitializeEvent(20, 10101, 1047590120, 1047590220, 1047590200); // Hidden Path
+    
+    // Second Cascade: this is required so that if the first cascade runs to the end
+    // of the list, the list can continue the cascade back at the start
+    
+    // e.g. Random flag hits Deathtouched, however all dungeons after Deathtouched
+    // have already been visited. Therefore, we want it to cascade back
+    // round to the start, and hit the non-visited dungeon.
+    InitializeEvent(21, 10101, 1047590100, 1047590200, 1047590201); // Tombsward
+    InitializeEvent(22, 10101, 1047590101, 1047590201, 1047590202); // Impaler
+    InitializeEvent(23, 10101, 1047590102, 1047590202, 1047590203); // Stormfoot
+    InitializeEvent(24, 10101, 1047590103, 1047590203, 1047590204); // Road's End
+    InitializeEvent(25, 10101, 1047590104, 1047590204, 1047590205); // Murkwater
+    InitializeEvent(26, 10101, 1047590105, 1047590205, 1047590206); // Black Knife
+    InitializeEvent(27, 10101, 1047590106, 1047590206, 1047590207); // Cliffbottom
+    InitializeEvent(28, 10101, 1047590107, 1047590207, 1047590208); // Wyndham
+    InitializeEvent(29, 10101, 1047590108, 1047590208, 1047590209); // Sainted Hero's Grave
+    InitializeEvent(30, 10101, 1047590109, 1047590209, 1047590210); // Gelmir Hero's Grave
+    InitializeEvent(31, 10101, 1047590110, 1047590210, 1047590211); // Azuria Hero's Grave
+    InitializeEvent(32, 10101, 1047590111, 1047590211, 1047590212); // Deathtouched
+    InitializeEvent(33, 10101, 1047590112, 1047590212, 1047590213); // Unsightly
+    InitializeEvent(34, 10101, 1047590113, 1047590213, 1047590214); // Auriza Side Tomb
+    InitializeEvent(35, 10101, 1047590114, 1047590214, 1047590215); // Minor Erdtree
+    InitializeEvent(36, 10101, 1047590115, 1047590215, 1047590216); // Caelid
+    InitializeEvent(37, 10101, 1047590116, 1047590216, 1047590217); // War-Dead
+    InitializeEvent(38, 10101, 1047590117, 1047590217, 1047590218); // Giant-Conquering
+    InitializeEvent(39, 10101, 1047590118, 1047590218, 1047590219); // Giants' Mountaintop
+    InitializeEvent(40, 10101, 1047590119, 1047590219, 1047590220); // Consecrated Snowfield
+    InitializeEvent(41, 10101, 1047590120, 1047590220, 1047590200); // Hidden Path 
+    
+    WaitFixedTimeSeconds(0.5);
+    
+    // Tombsward
+    if(EventFlag(1047590200))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Impaler
+    if(EventFlag(1047590201))
+    {
+        WarpPlayer(30, 1, 0, 0, 30010980, 66000);
+    }
+    // Stormfoot
+    if(EventFlag(1047590202))
+    {
+        WarpPlayer(30, 2, 0, 0, 30020980, 66000);
+    }
+    // Road's End
+    if(EventFlag(1047590203))
+    {
+        WarpPlayer(30, 3, 0, 0, 30030980, 66000);
+    }
+    // Murkwater
+    if(EventFlag(1047590204))
+    {
+        WarpPlayer(30, 4, 0, 0, 30040980, 66000);
+    }
+    // Black Knife
+    if(EventFlag(1047590205))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Cliffbottom
+    if(EventFlag(1047590206))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Wyndham
+    if(EventFlag(1047590207))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Sainted Hero's Grave
+    if(EventFlag(1047590208))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Gelmir Hero's Grave
+    if(EventFlag(1047590209))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Azuria Hero's Grave
+    if(EventFlag(1047590210))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Deathtouched
+    if(EventFlag(1047590211))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Unsightly
+    if(EventFlag(1047590212))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Auriza Side Tomb
+    if(EventFlag(1047590213))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Minor Erdtree
+    if(EventFlag(1047590214))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Caelid
+    if(EventFlag(1047590215))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // War-Dead
+    if(EventFlag(1047590216))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Giant-Conquering
+    if(EventFlag(1047590217))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Giants' Mountaintop
+    if(EventFlag(1047590218))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Consecrated Snowfield
+    if(EventFlag(1047590219))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+    // Hidden Path
+    if(EventFlag(1047590220))
+    {
+        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    }
+});
+
+// Logic
+$Event(10101, Default, function(X0_4, X4_4, X8_4) {
+    // Trigger
+    if(EventFlag(X4_4))
+    {
+        // Used
+        if(EventFlag(X0_4))
+        {
+            // Trigger Next
+            SetEventFlag(0, X8_4, ON);
+        }
+        else
+        {
+            // Set Used
+            SetEventFlag(0, X0_4, ON);
+        }
+    }
+});
+
+// Corpse Treasure logic
+$Event(10200, Default, function() {
+    WaitFor(CharacterHasSpEffect(0, 10000100, 0, 1));
+    
+    DisplayBanner(TextBannerType.BloodyFingerVanquished);
+});
+
+// Chest Treasure logic
+$Event(10300, Default, function() {
+    WaitFor(CharacterHasSpEffect(0, 10000101, 0, 1));
 });
 
 //-----------------------------------
@@ -6597,5 +6826,3 @@ $Event(10100, Default, function() {
 $Event(15000, Default, function() {
     
 });
-
-
