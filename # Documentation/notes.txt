@@ -1,0 +1,24 @@
+#-------------------------------------
+# Deathtrap Dungeon
+#-------------------------------------
+The player must venture through a dungeon filled with traps, danger and death!
+
+Design:
+ Dungeon size should be approximately 15 minutes of running (with no breaks).
+ This means playtime will be 1 to 2 hours, factoring in combat and other gameplay.
+ 
+ Tombsward Base: 35 secs for full run
+
+Progression:
+ The player starts with a Dagger at the inner entrance of the dungeon.
+ The goal is to venture through the dungeon and reach the exit stairs to the outside once more.
+
+ Two game-modes (this will replace class selection):
+  Softcore: death will reset player back to the start of the dungeon.
+  Hardcore: death will reset player back to the start of the dungeon and override their Chr to reset their equipment.
+
+Treasure:
+ Semi-random, treasure locations will be randomised, and the loot itself will be distributed via a 'bucket' method within EMEVD on pickup
+ 
+Equipment:
+ 

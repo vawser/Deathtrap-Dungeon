@@ -1,0 +1,18 @@
+{
+  "list": [
+    {
+      "id": "dummy",
+      "name": "Dummy",
+      "tags": [
+        "dummy"
+      ]
+    },
+    {
+      "id": "m10_01_00_00",
+      "name": "Deathtrap Dungeon",
+      "tags": [
+        ""
+      ]
+    }
+  ]
+}

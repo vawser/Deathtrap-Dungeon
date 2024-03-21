@@ -1,0 +1,481 @@
+{
+  "list": [
+    {
+      "id": "dummy",
+      "name": "Dummy",
+      "tags": [
+        "dummy"
+      ]
+    },
+    {
+      "id": "aeg020_836",
+      "name": "Catacombs Entrance Segment",
+      "tags": [
+        "catacombs",
+        "brick",
+        "short"
+      ]
+    },
+    {
+      "id": "aeg023_932",
+      "name": "Scattered Bones",
+      "tags": [
+        "asset",
+        "sparse"
+      ]
+    },
+    {
+      "id": "aeg023_922",
+      "name": "Scattered Bones",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg020_210",
+      "name": "Catacombs Hallway Segment",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg020_205",
+      "name": "Catacombs Hallway Arch",
+      "tags": [
+        "asset",
+        "catacombs",
+        "stone"
+      ]
+    },
+    {
+      "id": "aeg023_921",
+      "name": "Scattered Bones Row",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg020_250",
+      "name": "Catacombs Stair Hallway",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg023_924",
+      "name": "Row of bones with a few piled skulls",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_933",
+      "name": "Sparser scattered bones",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_923",
+      "name": "Small pile of bones",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_875",
+      "name": "Long set of candles, split",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_873",
+      "name": "Set of candles, curved and split wider",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_914",
+      "name": "Small pile of rocks, two small rocks to one side",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg020_992",
+      "name": "A few candles",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg020_993",
+      "name": "Wall-mounted torch",
+      "tags": [
+        "asset",
+        "light"
+      ]
+    },
+    {
+      "id": "aeg004_692",
+      "name": "Candlestick Holder",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_862",
+      "name": "Fancy nine-candle candlestick",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg099_060",
+      "name": "Small pile of roots",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg022_802",
+      "name": "Spread-out, fuzzy grey roots",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg022_800",
+      "name": "Bunch of grey roots",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg023_928",
+      "name": "Widely-scattered bones, slanted",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg020_880",
+      "name": "Medium curved arrangement of spiderwebs",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg022_801",
+      "name": "Thick bundle of grey roots",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg020_230",
+      "name": "Brick hallway segment, T-shaped",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg023_915",
+      "name": "Leaning wooden planks with chains, some rocks",
+      "tags": [
+        "asset",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_876",
+      "name": "Corner of candles",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_878",
+      "name": "Corner of candles",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_920",
+      "name": "Short row of densely-packed bones",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_937",
+      "name": "Widely-scattered bones, arranged in T-shape",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_926",
+      "name": "Long row of bones, slanted",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg004_693",
+      "name": "Wall Torch",
+      "tags": [
+        "asset",
+        "light"
+      ]
+    },
+    {
+      "id": "aeg023_880",
+      "name": "Long spiderweb",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg023_910",
+      "name": "Small row of rocks",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg027_079",
+      "name": "Stone Imp Statue - 1 Key Inserted",
+      "tags": [
+        "asset",
+        "catacombs",
+        "interactable"
+      ]
+    },
+    {
+      "id": "aeg020_206",
+      "name": "Catacombs Hallway Arch",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg020_700",
+      "name": "Catacombs Tall Room with Corner Pillars",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg027_068",
+      "name": "Small stone jar",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_867",
+      "name": "Broken jar",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg020_961",
+      "name": "Stone coffin, lid askew, holding bones",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg020_960",
+      "name": "Stone coffin",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg023_980",
+      "name": "Widely-scattered bunch of bones",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg099_600",
+      "name": "Peasant Corpse",
+      "tags": [
+        "asset",
+        "interactable",
+        "treasure"
+      ]
+    },
+    {
+      "id": "aeg027_111",
+      "name": "Wide stone vase, bound with rope",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg020_980",
+      "name": "Pottery fragments",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg020_989",
+      "name": "Small pedastal with stone brazier",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg020_940",
+      "name": "Large statue of a cloaked woman",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg020_703",
+      "name": "Large, wide stone wall with alcove",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg020_701",
+      "name": "Large, wide brick wall",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg020_994",
+      "name": "Brazier hanging by chain",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg023_925",
+      "name": "Short row of bones",
+      "tags": [
+        "asset",
+        "catacombs",
+        "clutter"
+      ]
+    },
+    {
+      "id": "aeg023_917",
+      "name": "Leaning Wooden Planks",
+      "tags": [
+        "asset",
+        "clutter",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg020_211",
+      "name": "Double hallway segment",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg023_665",
+      "name": "Tall Room - Two Hallway Entrances, One Door Entrance",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg023_667",
+      "name": "Catacombs Boss Hallway and Door Wall",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    },
+    {
+      "id": "aeg023_643",
+      "name": "Stone wall segment with gateway",
+      "tags": [
+        "asset",
+        "catacombs"
+      ]
+    }
+  ]
+}
