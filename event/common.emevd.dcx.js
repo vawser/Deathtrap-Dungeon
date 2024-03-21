@@ -6573,7 +6573,22 @@ $Event(9950, Default, function(X0_4, X4_4) {
 // Deathtrap Dungeon: Core
 //-----------------------------------
 $Event(10000, Default, function() {
+    InitializeEvent(0, 10010, 0); // Trial of Champions warp
+    InitializeEvent(0, 10100, 0); // Level Warp logic
+});
+
+// Trial of Champions Warp
+$Event(10010, Default, function() {
+    EndIf(EventFlag(1047610010));
     
+    SetEventFlag(0, 1047610010, ON);
+    WarpPlayer(45, 2, 0, 0, 45020200, 450100);
+});
+
+// Level Warp logic
+$Event(10100, Default, function() {
+    WaitFor(EventFlag(1047590010));
+    SetEventFlag(0, 1047590010, OFF);
 });
 
 //-----------------------------------

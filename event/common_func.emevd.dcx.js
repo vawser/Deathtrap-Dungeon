@@ -6826,8 +6826,41 @@ L2:
 //--------------------------------------------
 // Deathtrap Dungeon
 //--------------------------------------------
-// Level Warp
+// Start - Level Warp
 $Event(98006000, Restart, function() {
-    // DEBUG: Tombsward
-    WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+    // Trigger Level Warp logic
+    SetEventFlag(0, 1047590010, ON);
 });
+
+
+// Boss - Level Warp
+$Event(98006010, Default, function(X0_4, X4_4, X8_4, X12_4) {
+    EndIf(!PlayerIsInOwnWorld());
+    WaitFor(PlayerIsInOwnWorld() && EventFlag(X0_4));
+    if (!ThisEventSlot()) {
+        CreateAssetfollowingSFX(X12_4, 190, 1300);
+    }
+    WaitFor(
+        !(HasMultiplayerState(MultiplayerState.MultiplayerPending)
+            || HasMultiplayerState(MultiplayerState.Multiplayer))
+            && ActionButtonInArea(9290, X12_4));
+    DisplayGenericDialogAndSetEventFlags(4100, PromptType.YESNO, NumberofOptions.TwoButtons, X12_4, 3, X4_4, X8_4, X8_4);
+    if (!EventFlag(X4_4)) {
+        SetEventFlagID(X8_4, ON);
+        WaitFixedTimeSeconds(2);
+        RestartEvent();
+    }
+L1:
+    ForceAnimationPlayback(10000, 60460, false, false, false);
+    WaitFixedTimeSeconds(2.5);
+    
+    // Trigger Level Warp logic
+    SetEventFlag(0, 1047590010, ON);
+});
+
+
+
+
+
+
+
