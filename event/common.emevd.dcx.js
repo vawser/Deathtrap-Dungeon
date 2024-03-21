@@ -8,7 +8,10 @@
 // ==/EMEVD==
 
 $Event(0, Default, function() {
-    InitializeEvent(0, 701, 0);
+    InitializeEvent(0, 10000, 0); // Deathtrap Dungeon - Core
+    InitializeEvent(0, 15000, 0); // Deathtrap Dungeon - Debug
+    
+    //InitializeEvent(0, 701, 0);
     InitializeEvent(0, 705, 0);
     InitializeEvent(0, 900, 0);
     InitializeEvent(0, 901, 0);
@@ -6564,6 +6567,39 @@ $Event(9950, Default, function(X0_4, X4_4) {
     EndIf(EventFlag(X0_4));
     WaitFor(EventFlag(X0_4));
     SetEventFlagID(X4_4, ON);
+});
+
+//-----------------------------------
+// Deathtrap Dungeon: Core
+//-----------------------------------
+$Event(10000, Default, function() {
+    InitializeEvent(0, 10001, 0);
+    InitializeEvent(0, 10002, 0);
+});
+
+// Player Death Monitor
+$Event(10001, Default, function() {
+    WaitFor(CharacterRatioHasSpEffect(10000, 10000100, 0, 1));
+    SetEventFlag(0, 1047610010, ON);
+});
+
+// Player Failure Warp
+$Event(10002, Default, function() {
+    EndIf(EventFlag(1047610011));
+    
+    if(EventFlag(1047610010))
+    {
+        SetEventFlag(0, 1047610011, ON);
+        WarpPlayer(45, 2, 0, 0, 45020201, -1);
+        SetPlayerRespawnPoint(45020301);
+    }
+});
+
+//-----------------------------------
+// Deathtrap Dungeon: Debug
+//-----------------------------------
+$Event(15000, Default, function() {
+    
 });
 
 

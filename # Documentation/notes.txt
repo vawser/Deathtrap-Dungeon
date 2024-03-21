@@ -7,8 +7,6 @@ Design:
  Dungeon size should be approximately 15 minutes of running (with no breaks).
  This means playtime will be 1 to 2 hours, factoring in combat and other gameplay.
  
- Tombsward Base: 35 secs for full run
-
 Progression:
  The player starts with a Dagger at the inner entrance of the dungeon.
  The goal is to venture through the dungeon and reach the exit stairs to the outside once more.

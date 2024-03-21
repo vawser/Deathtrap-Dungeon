@@ -6823,4 +6823,11 @@ L2:
     EndEvent();
 });
 
-
+//--------------------------------------------
+// Deathtrap Dungeon
+//--------------------------------------------
+// Level Warp
+$Event(98006000, Restart, function() {
+    // DEBUG: Tombsward
+    WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+});

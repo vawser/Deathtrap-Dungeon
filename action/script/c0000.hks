@@ -1,64 +1,10 @@
 ﻿-------------------------------
--- Lands Betwixt: Global Variables
+-- Deathtrap Dungeon: Global Variables
 -------------------------------
 g_MoveMovementMultiplier = 1.2
 g_RollMovementMultiplier = 1.25
 g_BackstepMovementMultiplier = 1.25
 g_JumpMovementMultiplier = 1.25
-
-------------------------------------------
--- Lands Betwixt: Grafted Covenant
-------------------------------------------
-g_GraftedLevel = 0
-
-function TrackGraftedStatus()
-    -- Is in Grafted covenant
-    if env(GetSpEffectID, 7400100) == TRUE then
-        -- Enemy Kill occurs
-        if env(GetSpEffectID, 7000002) == TRUE and env(GetSpEffectID, 7400130) == FALSE then
-            act(AddSpEffect, 7400130) -- Kill counter cooldown
-            g_GraftedLevel = g_GraftedLevel + 1
-            
-            -- Add Grafted bonus if count is below 25
-            if g_GraftedLevel < 25 then
-                -- Rank 1
-                if env(GetSpEffectID, 7400101) == TRUE then
-                    act(AddSpEffect, 7400110)
-                end
-                -- Rank 2
-                if env(GetSpEffectID, 7400101) == TRUE then
-                    act(AddSpEffect, 7400111)
-                end
-                -- Rank 3
-                if env(GetSpEffectID, 7400101) == TRUE then
-                    act(AddSpEffect, 7400112)
-                end
-            end
-        end
-        
-        -- If enemy stack counter falls off, reset grafted level
-        -- Rank 1
-        if env(GetSpEffectID, 7400101) == TRUE then
-            if env(GetSpEffectID, 7400110) == FALSE then
-                g_GraftedLevel = 0
-            end
-        -- Rank 2
-        elseif env(GetSpEffectID, 7400102) == TRUE then
-            if env(GetSpEffectID, 7400111) == FALSE then
-                g_GraftedLevel = 0
-            end
-        -- Rank 3
-        elseif env(GetSpEffectID, 7400103) == TRUE then
-            if env(GetSpEffectID, 7400112) == FALSE then
-                g_GraftedLevel = 0
-            end
-        end
-        
-        if g_GraftedLevel > 25 then
-            g_GraftedLevel = 25
-        end
-    end
-end
 
 ------------------------------------------
 -- Throw Effects
@@ -709,13 +655,13 @@ function SetWeightIndex()
         SetVariable("MoveWeightIndex", MOVE_WEIGHT_HEAVY)
     end
 
-    -- Lands Betwixt: Crippling Strikes
+    -- Deathtrap Dungeon: Crippling Strikes
     if env(GetSpEffectID, 9492031) == TRUE then
         SetVariable("MoveWeightIndex", MOVE_WEIGHT_HEAVY)
         SetVariable("EvasionWeightIndex", EVASION_WEIGHT_INDEX_OVERWEIGHT)
     end
     
-    -- Lands Betwixt: Forgotten Pendant
+    -- Deathtrap Dungeon: Forgotten Pendant
     if env(GetSpEffectID, 362100) == TRUE or env(GetSpEffectID, 362101) == TRUE or env(GetSpEffectID, 362102) == TRUE or env(GetSpEffectID, 362103) == TRUE then
         SetVariable("MoveWeightIndex", MOVE_WEIGHT_HEAVY)
         SetVariable("EvasionWeightIndex", EVASION_WEIGHT_INDEX_HEAVY)
@@ -3913,7 +3859,7 @@ function GetHandChangeType(hand)
 end
 
 function ExecJump()
-    -- Lands Betwixt: removed env(Unknown700) == FALSE check in this if statement 
+    -- Deathtrap Dungeon: removed env(Unknown700) == FALSE check in this if statement 
     if env(ActionRequest, ACTION_ARM_JUMP) == FALSE then
         return FALSE
     elseif env(GetStamina) <= 0 and env(Unknown700) == FALSE then
@@ -4846,10 +4792,13 @@ function ExecDeath()
             end
         end
         
+        act(AddSpEffect, 10000100) -- Player Died
         ExecEventAllBody("W_DeathStart")
         return TRUE
     elseif env(IsInvincibleDebugMode) == FALSE and (env(GetStateChangeType, CONDITION_TYPE_STONE) == TRUE or env(GetStateChangeType, CONDITION_TYPE_CRYSTAL) == TRUE or env(GetDamageSpecialAttribute, 3) == TRUE) then
         SetVariable("IndexDeath", DEATH_TYPE_STONE)
+        
+        act(AddSpEffect, 10000100) -- Player Died
         ExecEventAllBody("W_DeathStart")
         return TRUE
     else
@@ -4880,11 +4829,11 @@ function ExecDamage(is_parry, is_attackwhileguard)
     local damage_type = env(GetReceivedDamageType)
     local is_damaged = env(HasReceivedAnyDamage)
     
-    -- Lands Betwixt: Is Hit
+    -- Deathtrap Dungeon: Is Hit
     if is_damaged == TRUE then
         act(AddSpEffect, 150001) 
         
-        -- Lands Betwixt: Signet of Fury
+        -- Deathtrap Dungeon: Signet of Fury
         if env(GetSpEffectID, 362000) == TRUE then
            act(AddSpEffect, 362010)
         elseif env(GetSpEffectID, 362001) == TRUE then
@@ -4896,13 +4845,13 @@ function ExecDamage(is_parry, is_attackwhileguard)
         end
     end
     
-    -- Lands Betwixt: Crossbow Parry
+    -- Deathtrap Dungeon: Crossbow Parry
     if env(GetSpEffectID, 31) == TRUE and env(GetSpEffectID, 7000300) == TRUE then
         ExecEventAllBody("W_DamageParry")
         return TRUE
     end
     
-    -- Lands Betwixt: Timed Block Parry
+    -- Deathtrap Dungeon: Timed Block Parry
     if env(GetSpEffectID, 7000301) == TRUE then
         if env(GetSpEffectID, 7000304) == TRUE and env(GetSpEffectID, 7000305) == FALSE then
             act(AddSpEffect, 7000305)
@@ -7556,7 +7505,7 @@ function Rolling_onUpdate()
     
     SetEnableAimMode()
     
-	-- Lands Betwixt
+	-- Deathtrap Dungeon
     act(SetMovementScaleMult, g_RollMovementMultiplier)
     --
     if TRUE == EvasionCommonFunction(FALL_TYPE_DEFAULT, "W_AttackRightLightStep", "W_AttackRightHeavy1Start", "W_AttackLeftLight1", "W_AttackLeftHeavy1", "W_AttackBothLightStep", "W_AttackBothHeavy1Start", QUICKTYPE_ROLLING) then
@@ -7583,7 +7532,7 @@ function Rolling_Selftrans_onUpdate()
     
     SetEnableAimMode()
     
-	-- Lands Betwixt
+	-- Deathtrap Dungeon
     act(SetMovementScaleMult, g_RollMovementMultiplier)
 	--
     
@@ -7608,7 +7557,7 @@ end
 function DefaultBackStep_onUpdate()
     act(DisallowAdditiveTurning, TRUE)
     
-	-- Lands Betwixt
+	-- Deathtrap Dungeon
     act(SetMovementScaleMult, g_BackstepMovementMultiplier)
     -- 
     if TRUE == EvasionCommonFunction(FALL_TYPE_DEFAULT, "W_AttackRightBackstep", "W_AttackRightHeavy1Start", "W_AttackLeftLight1", "W_AttackLeftHeavy1", "W_AttackBothBackstep", "W_AttackBothHeavy1Start", QUICKTYPE_BACKSTEP) then
@@ -7712,16 +7661,16 @@ function Move_onUpdate()
         SetTurnSpeed(npc_turn_speed)
     end
     
-    -- Lands Betwixt: made the base multiplier easier to alter
+    -- Deathtrap Dungeon: made the base multiplier easier to alter
     local base_speed = g_MoveMovementMultiplier
     local base_speed_percent = base_speed / 100
     
-    -- Lands Betwixt: Movement Speed Boost
+    -- Deathtrap Dungeon: Movement Speed Boost
     if env(GetSpEffectID, 151100) == TRUE then
         base_speed_percent = base_speed_percent * 1.2
     end
     
-    -- Lands Betwixt: Prisoner's Chain
+    -- Deathtrap Dungeon: Prisoner's Chain
     if env(GetSpEffectID, 362300) == TRUE then
        base_speed_percent = base_speed_percent * 1.06
     elseif env(GetSpEffectID, 362301) == TRUE then
@@ -8416,7 +8365,7 @@ end
 function AttackRightBackstep_onUpdate()
     local r1 = "W_AttackRightLightSubStart"
     
-	-- Lands Betwixt
+	-- Deathtrap Dungeon
     act(SetMovementScaleMult, g_BackstepMovementMultiplier)
     --
 
@@ -8580,7 +8529,7 @@ end
 function AttackDualBackStep_onUpdate()
     local l1 = "W_AttackLeftLight2"
     
-	-- Lands Betwixt
+	-- Deathtrap Dungeon
     act(SetMovementScaleMult, g_BackstepMovementMultiplier)
     --
 
@@ -8836,7 +8785,7 @@ end
 function AttackBothBackstep_onUpdate()
     local b1 = "W_AttackBothLightSubStart"
     
-	-- Lands Betwixt
+	-- Deathtrap Dungeon
     act(SetMovementScaleMult, g_BackstepMovementMultiplier)
     --
 
@@ -13136,7 +13085,7 @@ function Throw_Activate()
     SetVariable("ThrowHolding", false)
     SetVariable("ThrowNoRegistTime", 0)
 
-    -- Lands Betwixt: Throw Additions
+    -- Deathtrap Dungeon: Throw Additions
     ApplyThrowEffects()
 end
 
@@ -15102,7 +15051,6 @@ function Update()
     TrackTimedBlock()
     TrackMultiJump()
     RegenerateFP()
-    TrackGraftedStatus()
     
     act(SwitchMotion, FALSE)
     
@@ -15248,7 +15196,7 @@ function ModifiersLayer_onGenerate()
     CopyLocalMatrix("Neck", "Collar")
 end
 
--- Lands Betwixt: Utility
+-- Deathtrap Dungeon: Utility
 function ModifyBonePosition(target, index, value)
     local sourceMatrix = hkbGetBoneModelSpace(target)
     local source = sourceMatrix:getTranslation()
@@ -15549,7 +15497,7 @@ function ExecRideDamage()
     -- Torrent Dismount from Poise Damage
     elseif env(GetPoise) <= 0 and (damage_level > DAMAGE_LEVEL_NONE or damage_level_under > DAMAGE_LEVEL_NONE) and (is_damaged == TRUE or is_damaged_under == TRUE) then
         
-        -- Lands Betwixt: Frozen Raisin
+        -- Deathtrap Dungeon: Frozen Raisin
         if env(GetSpEffectID, 500815) == TRUE then
             return FALSE
         end
@@ -15559,7 +15507,7 @@ function ExecRideDamage()
     elseif env(GetDamageSpecialAttribute, 5) == TRUE then
         FireRideEvent("W_RideDamage_Fall", "W_RideRun_End", FALSE)
         
-        -- Lands Betwixt: Frozen Raisin
+        -- Deathtrap Dungeon: Frozen Raisin
         if env(GetSpEffectID, 500815) == TRUE then
             return FALSE
         end
@@ -17374,13 +17322,13 @@ function RideWalk_onUpdate()
     act(Wait)
     SetEnableAimMode()
     
-    -- Lands Betwixt: Rotten Raisin
+    -- Deathtrap Dungeon: Rotten Raisin
     if env(GetSpEffectID, 500902) == FALSE and env(GetSpEffectID, 500901) == TRUE then
         act(AddSpEffect, 500900)
         act(AddSpEffect, 500902)
     end
     
-    -- Lands Betwixt: Volcanic Raisin
+    -- Deathtrap Dungeon: Volcanic Raisin
     if env(GetSpEffectID, 500912) == FALSE and env(GetSpEffectID, 500911) == TRUE then
         act(AddSpEffect, 500910)
         act(AddSpEffect, 500912)
@@ -17413,13 +17361,13 @@ function RideDash_onUpdate()
     act(Wait)
     SetEnableAimMode()
     
-    -- Lands Betwixt: Rotten Raisin
+    -- Deathtrap Dungeon: Rotten Raisin
     if env(GetSpEffectID, 500902) == FALSE and env(GetSpEffectID, 500901) == TRUE then
         act(AddSpEffect, 500900)
         act(AddSpEffect, 500902)
     end
     
-    -- Lands Betwixt: Volcanic Raisin
+    -- Deathtrap Dungeon: Volcanic Raisin
     if env(GetSpEffectID, 500912) == FALSE and env(GetSpEffectID, 500911) == TRUE then
         act(AddSpEffect, 500910)
         act(AddSpEffect, 500912)
@@ -17443,13 +17391,13 @@ function RideDashAccelerate_onUpdate()
         act(AddSpEffect, 100020)
     end
     
-    -- Lands Betwixt: Rotten Raisin
+    -- Deathtrap Dungeon: Rotten Raisin
     if env(GetSpEffectID, 500902) == FALSE and env(GetSpEffectID, 500901) == TRUE then
         act(AddSpEffect, 500900)
         act(AddSpEffect, 500902)
     end
     
-    -- Lands Betwixt: Volcanic Raisin
+    -- Deathtrap Dungeon: Volcanic Raisin
     if env(GetSpEffectID, 500912) == FALSE and env(GetSpEffectID, 500911) == TRUE then
         act(AddSpEffect, 500910)
         act(AddSpEffect, 500912)
@@ -17473,13 +17421,13 @@ function RideDashAccelerateContinue_onUpdate()
         act(AddSpEffect, 100020)
     end
     
-    -- Lands Betwixt: Rotten Raisin
+    -- Deathtrap Dungeon: Rotten Raisin
     if env(GetSpEffectID, 500902) == FALSE and env(GetSpEffectID, 500901) == TRUE then
         act(AddSpEffect, 500900)
         act(AddSpEffect, 500902)
     end
     
-    -- Lands Betwixt: Volcanic Raisin
+    -- Deathtrap Dungeon: Volcanic Raisin
     if env(GetSpEffectID, 500912) == FALSE and env(GetSpEffectID, 500911) == TRUE then
         act(AddSpEffect, 500910)
         act(AddSpEffect, 500912)
@@ -17781,7 +17729,7 @@ function RideCommonFunction(r1, r2, l1, l2)
                 return TRUE
             end
             
-            -- Lands Betwixt: Spiritspring Jump from Rowa Raisan
+            -- Deathtrap Dungeon: Spiritspring Jump from Rowa Raisan
             if env(GetMountSpEffectID, 500810) == TRUE then
                 act(DebugLogOutput, "RideJumpHigh Height=" .. highJumpHeight .. "cm")
                 Ride_HighJump_Height = highJumpHeight + 700
@@ -19665,7 +19613,7 @@ function Act_Jump()
     
     local damage_type = env(GetReceivedDamageType)
     
-	-- Lands Betwixt
+	-- Deathtrap Dungeon
     act(SetMovementScaleMult, g_JumpMovementMultiplier)
     --
 
@@ -21453,7 +21401,7 @@ lastUsedMagicAnim = -1
 
 Event_MoveQuick = { "W_MoveQuick", MOVE_DEF0 }
 
--- Lands Betwixt: added
+-- Deathtrap Dungeon: added
 ACTION_ARM_JUMP = ACTION_ARM_CHANGE_STYLE
 
 ------------------------
