@@ -11,10 +11,11 @@ Design:
  Upon death, move the soulstain to the "Trial of Champions" from any of the dungeon maps.
  
 Successors:
-  Similar to Rogue Legacy, 
+  Similar to Rogue Legacy, upon death the player can choose from 3 'classes' with one trait each, upon selecting they will be teleported back into the open area.
 
 Treasure:
  Semi-random, treasure locations will be randomised, and the loot itself will be distributed via a 'bucket' method within EMEVD on pickup
  
-Equipment:
+Dungeons:
+ Each level will have 3 sets of enemies: Default, Alt 1 and Alt 2. Which are used will be randomised each time.
  

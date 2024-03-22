@@ -50,12 +50,35 @@
 1047590219 Trigger: Consecrated Snowfield
 1047590220 Trigger: Hidden Path
 
+1047590300 Level Scaling: 0
+1047590301 Level Scaling: 1
+1047590302 Level Scaling: 2
+1047590303 Level Scaling: 3
+1047590304 Level Scaling: 4
+1047590305 Level Scaling: 5
+1047590306 Level Scaling: 6
+1047590307 Level Scaling: 7
+1047590308 Level Scaling: 8
+1047590309 Level Scaling: 9
+1047590310 Level Scaling: 10
+1047590311 Level Scaling: 11
+1047590312 Level Scaling: 12
+1047590313 Level Scaling: 13
+1047590314 Level Scaling: 14
+1047590315 Level Scaling: 15
+1047590316 Level Scaling: 16
+1047590317 Level Scaling: 17
+1047590318 Level Scaling: 18
+1047590319 Level Scaling: 19
+1047590320 Level Scaling: 20
+
 #------------------------------------
 104761_0000 Systems
 #------------------------------------
 1047610000
 
-1047610010 Warp to Trial of Champions
+1047610005 Trigger: Initial Warp
+1047610010 Trigger: Trial of Champions Warp
 
 1047610020 Gem: Sapphire
 1047610030 Gem: Emerald

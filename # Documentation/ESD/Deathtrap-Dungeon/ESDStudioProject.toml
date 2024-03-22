@@ -1,0 +1,7 @@
+title = "ESDStudioProject"
+[project_info]
+name = "Deathtrap-Dungeon"
+base_directory = "C:\\Users\\benja\\Modding\\Elden Ring\\Projects\\Deathtrap-Dungeon\\# Documentation\\ESD\\Deathtrap-Dungeon"
+game_directory = "F:\\SteamLibrary\\steamapps\\common\\ELDEN RING\\Game"
+mod_directory = "C:\\Users\\benja\\Modding\\Elden Ring\\Projects\\Deathtrap-Dungeon"
+game = "er"

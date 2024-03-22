@@ -4792,13 +4792,11 @@ function ExecDeath()
             end
         end
         
-        act(AddSpEffect, 10000100) -- Player Died
         ExecEventAllBody("W_DeathStart")
         return TRUE
     elseif env(IsInvincibleDebugMode) == FALSE and (env(GetStateChangeType, CONDITION_TYPE_STONE) == TRUE or env(GetStateChangeType, CONDITION_TYPE_CRYSTAL) == TRUE or env(GetDamageSpecialAttribute, 3) == TRUE) then
         SetVariable("IndexDeath", DEATH_TYPE_STONE)
         
-        act(AddSpEffect, 10000100) -- Player Died
         ExecEventAllBody("W_DeathStart")
         return TRUE
     else

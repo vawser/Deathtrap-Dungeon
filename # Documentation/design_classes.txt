@@ -1,0 +1,81 @@
+#-------------------------------------------
+# Wretch -> Accursed
+#-------------------------------------------
+Equipment:
+- Club
+
+Class Skill: Furtive Blessing
+- Upon taking lethal damage, instead the Wretch will remain at 1 HP. This effect can only occur once per life.
+-> Heals to 100% HP.
+
+#-------------------------------------------
+# Mage -> Archmage
+#-------------------------------------------
+Equipment:
+Dagger
+Staff
+2 Sorceries
+
+Class Skill: Clear Mind
+- Gain X FP per second.
+-> Gain Y FP per second.
+
+#-------------------------------------------
+# Cleric -> Priest
+#-------------------------------------------
+Equipment:
+Mace
+Seal
+2 Incantations
+
+Class Skill: Divine Favour
+- Gain X HP per second.
+-> Gain Y HP per second.
+
+#-------------------------------------------
+# Dragonkin -> Dragonlord
+#-------------------------------------------
+Apply dragon eye effect
+
+Equipment: 
+Claws
+Seal
+2 Fire Incantations
+
+Class Skill: Scalehide
+- Gain +80% Fire abosorption
+-> Gain immunity to Fire.
+ 
+#-------------------------------------------
+# Soldier -> Knight
+#-------------------------------------------
+Equipment:
+Longsword -> Greatsword
+Shield
+
+Class Skill: Resolute
+- Gain immunity to stagger below 50% HP.
+-> Gain immunity to stagger. 
+ 
+#-------------------------------------------
+# Barbarian -> Warlord
+#-------------------------------------------
+Equipment:
+Axe
+Dagger
+
+Class Skill: Undying Rage
+- Boost damage by up to X% based on amount of HP lost.
+-> Boost damage by up to Y% based on amount of HP lost.
+
+#-------------------------------------------
+# Knave -> Assassin
+#-------------------------------------------
+Equipment: 
+Rapier
+Buckler
+
+Class Skill: Silent Movements
+- Reduces eye and ear detection of enemies by 50%
+- Reduces eye and ear detection of enemies by 90%
+

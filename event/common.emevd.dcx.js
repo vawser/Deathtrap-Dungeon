@@ -6577,15 +6577,16 @@ $Event(10000, Default, function() {
     InitializeEvent(0, 10100, 0); // Level Warp logic
     
     InitializeEvent(0, 10200, 0); // Corpse Treasure logic
-    InitializeEvent(0, 10300, 0); // Chest Treasure logic
+    
+    InitializeEvent(0, 10400, 0); // Enemy Level scaling logic
 });
 
 // Trial of Champions Warp
 $Event(10010, Default, function() {
-    EndIf(EventFlag(1047610010));
+    WaitFor(EventFlag(1047610010));
+    SetEventFlag(0, 1047610010, OFF);
     
-    SetEventFlag(0, 1047610010, ON);
-    WarpPlayer(45, 2, 0, 0, 45020200, 450100);
+    WarpPlayer(45, 2, 0, 0, 45020200, -1);
 });
 
 // Level Warp logic
@@ -6710,82 +6711,168 @@ $Event(10100, Default, function() {
     // Black Knife
     if(EventFlag(1047590205))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 5, 0, 0, 30050980, 66000);
     }
     // Cliffbottom
     if(EventFlag(1047590206))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 6, 0, 0, 30051890, 66000);
     }
     // Wyndham
     if(EventFlag(1047590207))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 7, 0, 0, 30070980, 66000);
     }
     // Sainted Hero's Grave
     if(EventFlag(1047590208))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 8, 0, 0, 30080980, 66000);
     }
     // Gelmir Hero's Grave
     if(EventFlag(1047590209))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 9, 0, 0, 30090980, 66000);
     }
     // Azuria Hero's Grave
     if(EventFlag(1047590210))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 10, 0, 0, 30100980, 66000);
     }
     // Deathtouched
     if(EventFlag(1047590211))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 11, 0, 0, 30110980, 66000);
     }
     // Unsightly
     if(EventFlag(1047590212))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 12, 0, 0, 30120980, 66000);
     }
     // Auriza Side Tomb
     if(EventFlag(1047590213))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 13, 0, 0, 30130980, 66000);
     }
     // Minor Erdtree
     if(EventFlag(1047590214))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 14, 0, 0, 30140980, 66000);
     }
     // Caelid
     if(EventFlag(1047590215))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 15, 0, 0, 30150980, 66000);
     }
     // War-Dead
     if(EventFlag(1047590216))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 16, 0, 0, 30160980, 66000);
     }
     // Giant-Conquering
     if(EventFlag(1047590217))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 17, 0, 0, 30170980, 66000);
     }
     // Giants' Mountaintop
     if(EventFlag(1047590218))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 18, 0, 0, 30180980, 66000);
     }
     // Consecrated Snowfield
     if(EventFlag(1047590219))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 19, 0, 0, 30190980, 66000);
     }
     // Hidden Path
     if(EventFlag(1047590220))
     {
-        WarpPlayer(30, 0, 0, 0, 30000900, 66000);
+        WarpPlayer(30, 20, 0, 0, 30200980, 66000);
+    }
+    
+    // Level Scaling - Increment tier per warp
+    if(!EventFlag(1047590300))
+    {
+        SetEventFlag(0, 1047590300, ON);
+    }
+    else if(!EventFlag(1047590301))
+    {
+        SetEventFlag(0, 1047590301, ON);
+    }
+    else if(!EventFlag(1047590302))
+    {
+        SetEventFlag(0, 1047590302, ON);
+    }
+    else if(!EventFlag(1047590303))
+    {
+        SetEventFlag(0, 1047590303, ON);
+    }
+    else if(!EventFlag(1047590304))
+    {
+        SetEventFlag(0, 1047590304, ON);
+    }
+    else if(!EventFlag(1047590305))
+    {
+        SetEventFlag(0, 1047590305, ON);
+    }
+    else if(!EventFlag(1047590306))
+    {
+        SetEventFlag(0, 1047590306, ON);
+    }
+    else if(!EventFlag(1047590307))
+    {
+        SetEventFlag(0, 1047590307, ON);
+    }
+    else if(!EventFlag(1047590308))
+    {
+        SetEventFlag(0, 1047590308, ON);
+    }
+    else if(!EventFlag(1047590309))
+    {
+        SetEventFlag(0, 1047590309, ON);
+    }
+    else if(!EventFlag(1047590310))
+    {
+        SetEventFlag(0, 1047590310, ON);
+    }
+    else if(!EventFlag(1047590311))
+    {
+        SetEventFlag(0, 1047590311, ON);
+    }
+    else if(!EventFlag(1047590312))
+    {
+        SetEventFlag(0, 1047590312, ON);
+    }
+    else if(!EventFlag(1047590313))
+    {
+        SetEventFlag(0, 1047590313, ON);
+    }
+    else if(!EventFlag(1047590314))
+    {
+        SetEventFlag(0, 1047590314, ON);
+    }
+    else if(!EventFlag(1047590315))
+    {
+        SetEventFlag(0, 1047590315, ON);
+    }
+    else if(!EventFlag(1047590316))
+    {
+        SetEventFlag(0, 1047590316, ON);
+    }
+    else if(!EventFlag(1047590317))
+    {
+        SetEventFlag(0, 1047590317, ON);
+    }
+    else if(!EventFlag(1047590318))
+    {
+        SetEventFlag(0, 1047590318, ON);
+    }
+    else if(!EventFlag(1047590319))
+    {
+        SetEventFlag(0, 1047590319, ON);
+    }
+    else if(!EventFlag(1047590320))
+    {
+        SetEventFlag(0, 1047590320, ON);
     }
 });
 
@@ -6808,16 +6895,99 @@ $Event(10101, Default, function(X0_4, X4_4, X8_4) {
     }
 });
 
-// Corpse Treasure logic
-$Event(10200, Default, function() {
-    WaitFor(CharacterHasSpEffect(0, 10000100, 0, 1));
+// Treasure logic
+$Event(10200, Restart, function() {
     
-    DisplayBanner(TextBannerType.BloodyFingerVanquished);
 });
 
-// Chest Treasure logic
-$Event(10300, Default, function() {
-    WaitFor(CharacterHasSpEffect(0, 10000101, 0, 1));
+// Enemy level scaling
+$Event(10400, Restart, function() {
+    SetSpEffect(400005000, 10000100);
+    
+    if(EventFlag(1047590300))
+    {
+        SetSpEffect(400005000, 10001000);
+    }
+    if(EventFlag(1047590301))
+    {
+        SetSpEffect(400005000, 10001001);
+    }
+    if(EventFlag(1047590302))
+    {
+        SetSpEffect(400005000, 10001002);
+    }
+    if(EventFlag(1047590303))
+    {
+        SetSpEffect(400005000, 10001003);
+    }
+    if(EventFlag(1047590304))
+    {
+        SetSpEffect(400005000, 10001004);
+    }
+    if(EventFlag(1047590305))
+    {
+        SetSpEffect(400005000, 10001005);
+    }
+    if(EventFlag(1047590306))
+    {
+        SetSpEffect(400005000, 10001006);
+    }
+    if(EventFlag(1047590307))
+    {
+        SetSpEffect(400005000, 10001007);
+    }
+    if(EventFlag(1047590308))
+    {
+        SetSpEffect(400005000, 10001008);
+    }
+    if(EventFlag(1047590309))
+    {
+        SetSpEffect(400005000, 10001009);
+    }
+    if(EventFlag(1047590310))
+    {
+        SetSpEffect(400005000, 10001010);
+    }
+    if(EventFlag(1047590311))
+    {
+        SetSpEffect(400005000, 10001011);
+    }
+    if(EventFlag(1047590312))
+    {
+        SetSpEffect(400005000, 10001012);
+    }
+    if(EventFlag(1047590313))
+    {
+        SetSpEffect(400005000, 10001013);
+    }
+    if(EventFlag(1047590314))
+    {
+        SetSpEffect(400005000, 10001014);
+    }
+    if(EventFlag(1047590315))
+    {
+        SetSpEffect(400005000, 10001015);
+    }
+    if(EventFlag(1047590316))
+    {
+        SetSpEffect(400005000, 10001016);
+    }
+    if(EventFlag(1047590317))
+    {
+        SetSpEffect(400005000, 10001017);
+    }
+    if(EventFlag(1047590318))
+    {
+        SetSpEffect(400005000, 10001018);
+    }
+    if(EventFlag(1047590319))
+    {
+        SetSpEffect(400005000, 10001019);
+    }
+    if(EventFlag(1047590320))
+    {
+        SetSpEffect(400005000, 10001020);
+    }
 });
 
 //-----------------------------------
