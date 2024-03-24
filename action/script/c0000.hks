@@ -1,5 +1,5 @@
 ﻿-------------------------------
--- Deathtrap Dungeon: Global Variables
+-- Global Variables
 -------------------------------
 g_MoveMovementMultiplier = 1.2
 g_RollMovementMultiplier = 1.25
@@ -353,25 +353,70 @@ end
 -- FP Regeneration
 ------------------------------------------
 function RegenerateFP()
-    -- Lethargic Mind check
-    if env(GetSpEffectID, 9420040) == FALSE then
-        -- FP Regen cooldown
-        if env(GetSpEffectID, 151000) == FALSE then    
-            act(AddSpEffect, 151000) 
-            
-            if env(GetFP) < 100 then
-                act(AddSpEffect, 151003) 
-            elseif env(GetFP) >= 100 and env(GetFP) < 250 then
-                act(AddSpEffect, 151002) 
-            elseif env(GetFP) >= 250 then
-                act(AddSpEffect, 151001) 
-            end
+    local low = 100
+    local medium = 250
+    
+    -- Is Apprentice class
+    if env(GetSpEffectID, 10010700) == TRUE then  
+        low = 200
+        medium = 350
+    end
+    
+    -- Is Sorcerer class
+    if env(GetSpEffectID, 10010710) == TRUE then  
+        low = 300
+        medium = 450
+    end
+    
+    -- FP Regen cooldown
+    if env(GetSpEffectID, 10000010) == FALSE then    
+        act(AddSpEffect, 10000010) 
+        
+        if env(GetFP) < low then
+            act(AddSpEffect, 10000011) 
+        elseif env(GetFP) >= low and env(GetFP) < medium then
+            act(AddSpEffect, 10000012) 
+        elseif env(GetFP) >= medium then
+            act(AddSpEffect, 10000013) 
         end
     end
 end
 
 ------------------------------------------
--- Clarifying Elixir
+-- HP Regeneration
+------------------------------------------
+function RegenerateHP()
+    local low = 500
+    local medium = 1000
+    
+    -- Is Disciple class
+    if env(GetSpEffectID, 10010800) == TRUE then  
+        low = 750
+        medium = 1250
+    end
+    
+    -- Is Priest class
+    if env(GetSpEffectID, 10010810) == TRUE then  
+        low = 1000
+        medium = 1500
+    end
+    
+    -- HP Regen cooldown
+    if env(GetSpEffectID, 10000020) == FALSE then    
+        act(AddSpEffect, 10000020) 
+        
+        if env(GetHP) < low then
+            act(AddSpEffect, 10000021) 
+        elseif env(GetHP) >= low and env(GetFP) < medium then
+            act(AddSpEffect, 10000022) 
+        elseif env(GetHP) >= medium then
+            act(AddSpEffect, 10000023) 
+        end
+    end
+end
+
+------------------------------------------
+-- Focused Shot
 ------------------------------------------
 g_HeldFrames = 0
 g_PowerTier1 = 25
@@ -382,26 +427,24 @@ g_PowerTier5 = 125
 g_CurrentPowerTier = 0
 g_IconSwap = false
 
-function HasEquipped_ClarifyingElixir()
-    if env(GetSpEffectID, 362600) == TRUE or
-       env(GetSpEffectID, 362601) == TRUE or 
-       env(GetSpEffectID, 362602) == TRUE or
-       env(GetSpEffectID, 362603) == TRUE then
+function UsesFocusedShot()
+    if env(GetSpEffectID, 10010600) == TRUE or
+       env(GetSpEffectID, 10010610) == TRUE then
         return true
     else
         return false
     end
 end
 
-function ClarifyingElixir_StartShot()
-    if HasEquipped_ClarifyingElixir() then
+function FocusedShot_StartShot()
+    if UsesFocusedShot() then
         g_CurrentPowerTier = 0
         g_HeldFrames = 0
     end
 end
 
-function ClarifyingElixir_HoldShot()
-    if HasEquipped_ClarifyingElixir() then
+function FocusedShot_HoldShot()
+    if UsesFocusedShot() then
         g_HeldFrames = g_HeldFrames + 1
         
         -- Show Power Tier icon based on current hold time
@@ -414,7 +457,7 @@ function ClarifyingElixir_HoldShot()
             if g_IconSwap == true then
                 g_IconSwap = false
             else
-                act(AddSpEffect, 362661)
+                act(AddSpEffect, 10010620)
             end
             
             if g_HeldFrames >= g_PowerTier2 then
@@ -425,7 +468,7 @@ function ClarifyingElixir_HoldShot()
             if g_IconSwap == true then
                 g_IconSwap = false
             else
-                act(AddSpEffect, 362662)
+                act(AddSpEffect, 10010621)
             end
             
             if g_HeldFrames >= g_PowerTier3 then
@@ -436,7 +479,7 @@ function ClarifyingElixir_HoldShot()
             if g_IconSwap == true then
                 g_IconSwap = false
             else
-                act(AddSpEffect, 362663)
+                act(AddSpEffect, 10010622)
             end
             
             if g_HeldFrames >= g_PowerTier4 then
@@ -447,7 +490,7 @@ function ClarifyingElixir_HoldShot()
             if g_IconSwap == true then
                 g_IconSwap = false
             else
-                act(AddSpEffect, 362664)
+                act(AddSpEffect, 10010623)
             end
             
             if g_HeldFrames >= g_PowerTier5 then
@@ -458,31 +501,26 @@ function ClarifyingElixir_HoldShot()
             if g_IconSwap == true then
                 g_IconSwap = false
             else
-                act(AddSpEffect, 362665)
+                act(AddSpEffect, 10010624)
             end
         end
     end
 end
 
-function ClarifyingElixir_FireShot()
-    if HasEquipped_ClarifyingElixir() then
+function FocusedShot_FireShot()
+    if UsesFocusedShot() then
         -- Assign power boost based on hold time
         local tier_offset = g_CurrentPowerTier - 1
-        local talisman_offset = 20
+        local class_offset = 0
         
-        if env(GetSpEffectID, 362600) == TRUE then
-            talisman_offset = 20
-        elseif env(GetSpEffectID, 362601) == TRUE then
-            talisman_offset = 30
-        elseif env(GetSpEffectID, 362602) == TRUE then
-            talisman_offset = 40
-        elseif env(GetSpEffectID, 362603) == TRUE then
-            talisman_offset = 50
+        -- Is Ranger class
+        if env(GetSpEffectID, 10010610) == TRUE then
+            class_offset = 10
         end
         
         -- If minimum tier is reached, apply boost
         if g_CurrentPowerTier > 0 then
-            local boost_id = 362600 + talisman_offset + tier_offset
+            local boost_id = 10010600 + class_offset + tier_offset
             
             act(AddSpEffect, boost_id)
         end
@@ -655,13 +693,13 @@ function SetWeightIndex()
         SetVariable("MoveWeightIndex", MOVE_WEIGHT_HEAVY)
     end
 
-    -- Deathtrap Dungeon: Crippling Strikes
+    -- Crippling Strikes
     if env(GetSpEffectID, 9492031) == TRUE then
         SetVariable("MoveWeightIndex", MOVE_WEIGHT_HEAVY)
         SetVariable("EvasionWeightIndex", EVASION_WEIGHT_INDEX_OVERWEIGHT)
     end
     
-    -- Deathtrap Dungeon: Forgotten Pendant
+    -- Forgotten Pendant
     if env(GetSpEffectID, 362100) == TRUE or env(GetSpEffectID, 362101) == TRUE or env(GetSpEffectID, 362102) == TRUE or env(GetSpEffectID, 362103) == TRUE then
         SetVariable("MoveWeightIndex", MOVE_WEIGHT_HEAVY)
         SetVariable("EvasionWeightIndex", EVASION_WEIGHT_INDEX_HEAVY)
@@ -3859,7 +3897,7 @@ function GetHandChangeType(hand)
 end
 
 function ExecJump()
-    -- Deathtrap Dungeon: removed env(Unknown700) == FALSE check in this if statement 
+    -- removed env(Unknown700) == FALSE check in this if statement 
     if env(ActionRequest, ACTION_ARM_JUMP) == FALSE then
         return FALSE
     elseif env(GetStamina) <= 0 and env(Unknown700) == FALSE then
@@ -4726,6 +4764,32 @@ function ExecDeath()
             return FALSE
         end
         
+        -- Wretch: Furtive Blessing
+        if env(GetSpEffectID, 10010000) == TRUE then
+            -- Not triggered
+            if env(GetSpEffectID, 10010001) == FALSE then
+                -- Tag as triggered
+                act(AddSpEffect, 10010001)
+                -- Heal 1 HP
+                act(AddSpEffect, 10010002)
+                -- Block death
+                return FALSE
+            end
+        end
+        
+        -- Accursed: Furtive Blessing
+        if env(GetSpEffectID, 10010010) == TRUE then
+            -- Not triggered
+            if env(GetSpEffectID, 10010011) == FALSE then
+                -- Tag as triggered
+                act(AddSpEffect, 10010011)
+                -- Heal 100% HP
+                act(AddSpEffect, 10010012)
+                -- Block death
+                return FALSE
+            end
+        end
+        
         local damage_angle = env(GetReceivedDamageDirection)
         
         SetVariable("DamageDirection", damage_angle)
@@ -4827,11 +4891,11 @@ function ExecDamage(is_parry, is_attackwhileguard)
     local damage_type = env(GetReceivedDamageType)
     local is_damaged = env(HasReceivedAnyDamage)
     
-    -- Deathtrap Dungeon: Is Hit
+    -- Is Hit
     if is_damaged == TRUE then
         act(AddSpEffect, 150001) 
         
-        -- Deathtrap Dungeon: Signet of Fury
+        -- Signet of Fury
         if env(GetSpEffectID, 362000) == TRUE then
            act(AddSpEffect, 362010)
         elseif env(GetSpEffectID, 362001) == TRUE then
@@ -4843,13 +4907,13 @@ function ExecDamage(is_parry, is_attackwhileguard)
         end
     end
     
-    -- Deathtrap Dungeon: Crossbow Parry
+    -- Crossbow Parry
     if env(GetSpEffectID, 31) == TRUE and env(GetSpEffectID, 7000300) == TRUE then
         ExecEventAllBody("W_DamageParry")
         return TRUE
     end
     
-    -- Deathtrap Dungeon: Timed Block Parry
+    -- Timed Block Parry
     if env(GetSpEffectID, 7000301) == TRUE then
         if env(GetSpEffectID, 7000304) == TRUE and env(GetSpEffectID, 7000305) == FALSE then
             act(AddSpEffect, 7000305)
@@ -7659,16 +7723,26 @@ function Move_onUpdate()
         SetTurnSpeed(npc_turn_speed)
     end
     
-    -- Deathtrap Dungeon: made the base multiplier easier to alter
+    -- made the base multiplier easier to alter
     local base_speed = g_MoveMovementMultiplier
     local base_speed_percent = base_speed / 100
     
-    -- Deathtrap Dungeon: Movement Speed Boost
+    -- Exile: Haste
+    if env(GetSpEffectID, 10010400) == TRUE then
+        base_speed_percent = base_speed_percent * 1.1
+    end
+    
+    -- Mercenary: Haste
+    if env(GetSpEffectID, 10010410) == TRUE then
+        base_speed_percent = base_speed_percent * 1.2
+    end
+    
+    -- Movement Speed Boost
     if env(GetSpEffectID, 151100) == TRUE then
         base_speed_percent = base_speed_percent * 1.2
     end
     
-    -- Deathtrap Dungeon: Prisoner's Chain
+    -- Prisoner's Chain
     if env(GetSpEffectID, 362300) == TRUE then
        base_speed_percent = base_speed_percent * 1.06
     elseif env(GetSpEffectID, 362301) == TRUE then
@@ -8853,7 +8927,7 @@ end
 function AttackArrowRightStart_Upper_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_StartShot()
+    FocusedShot_StartShot()
     
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -8886,7 +8960,7 @@ end
 function AttackArrowRightStartContinue_Upper_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_HoldShot()
+    FocusedShot_HoldShot()
     
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -8919,7 +8993,7 @@ end
 function AttackArrowRightLoop_Upper_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_HoldShot()
+    FocusedShot_HoldShot()
     
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -8945,7 +9019,7 @@ end
 function AttackArrowRightFire_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_FireShot()
+    FocusedShot_FireShot()
     
     if ArrowCommonFunction(ALLBODY, TRUE, TURN_TYPE_DEFAULT) == TRUE then
         return
@@ -8977,7 +9051,7 @@ end
 function AttackArrowRightFireMove_Upper_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_FireShot()
+    FocusedShot_FireShot()
     
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -9021,7 +9095,7 @@ end
 function AttackArrowRightFireDash_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_FireShot()
+    FocusedShot_FireShot()
     
     if ArrowCommonFunction(ALLBODY, TRUE, TURN_TYPE_DEFAULT) == TRUE then
         return
@@ -9053,7 +9127,7 @@ end
 function AttackArrowRightFireStep_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_FireShot()
+    FocusedShot_FireShot()
     
     if ArrowCommonFunction(ALLBODY, TRUE, TURN_TYPE_DEFAULT) == TRUE then
         return
@@ -9085,7 +9159,7 @@ end
 function AttackArrowLeftStart_Upper_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_StartShot()
+    FocusedShot_StartShot()
     
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -9118,7 +9192,7 @@ end
 function AttackArrowLeftStartContinue_Upper_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_HoldShot()
+    FocusedShot_HoldShot()
     
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -9151,7 +9225,7 @@ end
 function AttackArrowLeftLoop_Upper_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_HoldShot()
+    FocusedShot_HoldShot()
     
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -9177,7 +9251,7 @@ end
 function AttackArrowLeftFire_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_FireShot()
+    FocusedShot_FireShot()
     
     if ArrowCommonFunction(ALLBODY, TRUE, TURN_TYPE_DEFAULT) == TRUE then
         return
@@ -9210,7 +9284,7 @@ end
 function AttackArrowLeftFireMove_Upper_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_FireShot()
+    FocusedShot_FireShot()
     
     local blend_type, lower_state = GetHalfBlendInfo()
     if lower_state == LOWER_IDLE then
@@ -9252,7 +9326,7 @@ end
 function AttackArrowLeftFireDash_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_FireShot()
+    FocusedShot_FireShot()
     
     if ArrowCommonFunction(ALLBODY, TRUE, TURN_TYPE_DEFAULT) == TRUE then
         return
@@ -9263,7 +9337,7 @@ end
 function AttackArrowLeftFireStep_onUpdate()
     act(SetIsPreciseShootingPossible)
     
-    ClarifyingElixir_FireShot()
+    FocusedShot_FireShot()
     
     if ArrowCommonFunction(ALLBODY, TRUE, TURN_TYPE_DEFAULT) == TRUE then
         return
@@ -13083,7 +13157,7 @@ function Throw_Activate()
     SetVariable("ThrowHolding", false)
     SetVariable("ThrowNoRegistTime", 0)
 
-    -- Deathtrap Dungeon: Throw Additions
+    -- Throw Additions
     ApplyThrowEffects()
 end
 
@@ -15049,6 +15123,7 @@ function Update()
     TrackTimedBlock()
     TrackMultiJump()
     RegenerateFP()
+    RegenerateHP()
     
     act(SwitchMotion, FALSE)
     
@@ -15194,7 +15269,7 @@ function ModifiersLayer_onGenerate()
     CopyLocalMatrix("Neck", "Collar")
 end
 
--- Deathtrap Dungeon: Utility
+-- Utility
 function ModifyBonePosition(target, index, value)
     local sourceMatrix = hkbGetBoneModelSpace(target)
     local source = sourceMatrix:getTranslation()
@@ -15495,7 +15570,7 @@ function ExecRideDamage()
     -- Torrent Dismount from Poise Damage
     elseif env(GetPoise) <= 0 and (damage_level > DAMAGE_LEVEL_NONE or damage_level_under > DAMAGE_LEVEL_NONE) and (is_damaged == TRUE or is_damaged_under == TRUE) then
         
-        -- Deathtrap Dungeon: Frozen Raisin
+        -- Frozen Raisin
         if env(GetSpEffectID, 500815) == TRUE then
             return FALSE
         end
@@ -15505,7 +15580,7 @@ function ExecRideDamage()
     elseif env(GetDamageSpecialAttribute, 5) == TRUE then
         FireRideEvent("W_RideDamage_Fall", "W_RideRun_End", FALSE)
         
-        -- Deathtrap Dungeon: Frozen Raisin
+        -- Frozen Raisin
         if env(GetSpEffectID, 500815) == TRUE then
             return FALSE
         end
@@ -17320,13 +17395,13 @@ function RideWalk_onUpdate()
     act(Wait)
     SetEnableAimMode()
     
-    -- Deathtrap Dungeon: Rotten Raisin
+    -- Rotten Raisin
     if env(GetSpEffectID, 500902) == FALSE and env(GetSpEffectID, 500901) == TRUE then
         act(AddSpEffect, 500900)
         act(AddSpEffect, 500902)
     end
     
-    -- Deathtrap Dungeon: Volcanic Raisin
+    -- Volcanic Raisin
     if env(GetSpEffectID, 500912) == FALSE and env(GetSpEffectID, 500911) == TRUE then
         act(AddSpEffect, 500910)
         act(AddSpEffect, 500912)
@@ -17359,13 +17434,13 @@ function RideDash_onUpdate()
     act(Wait)
     SetEnableAimMode()
     
-    -- Deathtrap Dungeon: Rotten Raisin
+    -- Rotten Raisin
     if env(GetSpEffectID, 500902) == FALSE and env(GetSpEffectID, 500901) == TRUE then
         act(AddSpEffect, 500900)
         act(AddSpEffect, 500902)
     end
     
-    -- Deathtrap Dungeon: Volcanic Raisin
+    -- Volcanic Raisin
     if env(GetSpEffectID, 500912) == FALSE and env(GetSpEffectID, 500911) == TRUE then
         act(AddSpEffect, 500910)
         act(AddSpEffect, 500912)
@@ -17389,13 +17464,13 @@ function RideDashAccelerate_onUpdate()
         act(AddSpEffect, 100020)
     end
     
-    -- Deathtrap Dungeon: Rotten Raisin
+    -- Rotten Raisin
     if env(GetSpEffectID, 500902) == FALSE and env(GetSpEffectID, 500901) == TRUE then
         act(AddSpEffect, 500900)
         act(AddSpEffect, 500902)
     end
     
-    -- Deathtrap Dungeon: Volcanic Raisin
+    -- Volcanic Raisin
     if env(GetSpEffectID, 500912) == FALSE and env(GetSpEffectID, 500911) == TRUE then
         act(AddSpEffect, 500910)
         act(AddSpEffect, 500912)
@@ -17419,13 +17494,13 @@ function RideDashAccelerateContinue_onUpdate()
         act(AddSpEffect, 100020)
     end
     
-    -- Deathtrap Dungeon: Rotten Raisin
+    -- Rotten Raisin
     if env(GetSpEffectID, 500902) == FALSE and env(GetSpEffectID, 500901) == TRUE then
         act(AddSpEffect, 500900)
         act(AddSpEffect, 500902)
     end
     
-    -- Deathtrap Dungeon: Volcanic Raisin
+    -- Volcanic Raisin
     if env(GetSpEffectID, 500912) == FALSE and env(GetSpEffectID, 500911) == TRUE then
         act(AddSpEffect, 500910)
         act(AddSpEffect, 500912)
@@ -17727,7 +17802,7 @@ function RideCommonFunction(r1, r2, l1, l2)
                 return TRUE
             end
             
-            -- Deathtrap Dungeon: Spiritspring Jump from Rowa Raisan
+            -- Spiritspring Jump from Rowa Raisan
             if env(GetMountSpEffectID, 500810) == TRUE then
                 act(DebugLogOutput, "RideJumpHigh Height=" .. highJumpHeight .. "cm")
                 Ride_HighJump_Height = highJumpHeight + 700
@@ -21399,7 +21474,7 @@ lastUsedMagicAnim = -1
 
 Event_MoveQuick = { "W_MoveQuick", MOVE_DEF0 }
 
--- Deathtrap Dungeon: added
+-- added
 ACTION_ARM_JUMP = ACTION_ARM_CHANGE_STYLE
 
 ------------------------

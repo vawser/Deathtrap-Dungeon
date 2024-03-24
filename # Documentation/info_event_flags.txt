@@ -80,10 +80,41 @@
 1047610005 Trigger: Initial Warp
 1047610010 Trigger: Trial of Champions Warp
 
-1047610020 Gem: Sapphire
-1047610030 Gem: Emerald
-1047610040 Gem: Diamond
-1047610050 Gem: Garnet
+1047610020 Trigger Rebirth
+1047610021 Trigger Rebirth Class Change
+
+1047610100 Unlocked: Accursed
+1047610101 Unlocked: Knight
+1047610102 Unlocked: Warlord
+1047610103 Unlocked: Assassin
+1047610104 Unlocked: Mercenary
+1047610105 Unlocked: Shinobi
+1047610106 Unlocked: Ranger
+1047610107 Unlocked: Sorcerer
+1047610108 Unlocked: Priest
+1047610109 Unlocked: Noble
+
+1047610150 Display Option: Wretch / Accursed
+1047610151 Display Option: Soldier / Knight
+1047610152 Display Option: Barbarian / Warlord
+1047610153 Display Option: Knave / Assassin
+1047610154 Display Option: Exile / Mercenary
+1047610155 Display Option: Samurai / Shinobi
+1047610156 Display Option: Archer / Ranger
+1047610157 Display Option: Apprentice / Sorcerer
+1047610158 Display Option: Disciple / Priest
+1047610159 Display Option: Apostle / Noble
+
+1047610200 Chosen Option: Wretch / Accursed
+1047610201 Chosen Option: Soldier / Knight
+1047610202 Chosen Option: Barbarian / Warlord
+1047610203 Chosen Option: Knave / Assassin
+1047610204 Chosen Option: Exile / Mercenary
+1047610205 Chosen Option: Samurai / Shinobi
+1047610206 Chosen Option: Archer / Ranger
+1047610207 Chosen Option: Apprentice / Sorcerer
+1047610208 Chosen Option: Disciple / Priest
+1047610209 Chosen Option: Apostle / Noble
 
 #------------------------------------
 104762_0000 Misc

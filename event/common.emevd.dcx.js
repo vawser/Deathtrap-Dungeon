@@ -6573,20 +6573,163 @@ $Event(9950, Default, function(X0_4, X4_4) {
 // Deathtrap Dungeon: Core
 //-----------------------------------
 $Event(10000, Default, function() {
-    InitializeEvent(0, 10010, 0); // Trial of Champions warp
+    InitializeEvent(0, 10001, 0); // Trial of Champions warp
+    
+    InitializeEvent(0, 10010, 0); // Default Effects
+    InitializeEvent(0, 10020, 0); // Class Skills
+    
     InitializeEvent(0, 10100, 0); // Level Warp logic
     
     InitializeEvent(0, 10200, 0); // Corpse Treasure logic
     
     InitializeEvent(0, 10400, 0); // Enemy Level scaling logic
+    InitializeEvent(0, 10401, 0); // Godkiller debuff
 });
 
 // Trial of Champions Warp
-$Event(10010, Default, function() {
+$Event(10001, Default, function() {
     WaitFor(EventFlag(1047610010));
     SetEventFlag(0, 1047610010, OFF);
     
     WarpPlayer(45, 2, 0, 0, 45020200, -1);
+});
+
+// Default Effects
+$Event(10010, Default, function() {
+    SetSpEffect(10000, 10000040);
+});
+
+// Class Skills
+$Event(10020, Restart, function() {
+    // Wretch
+    if(PlayerHasItem(ItemType.Goods, 300000))
+    {
+        SetSpEffect(10000, 10010000);
+    }
+    
+    // Accursed
+    if(PlayerHasItem(ItemType.Goods, 300001))
+    {
+        SetSpEffect(10000, 10010010);
+    }
+    
+    // Soldier
+    if(PlayerHasItem(ItemType.Goods, 300010))
+    {
+        SetSpEffect(10000, 10010100);
+    }
+    
+    // Knight
+    if(PlayerHasItem(ItemType.Goods, 300011))
+    {
+        SetSpEffect(10000, 10010110);
+    }
+    
+    // Barbarian
+    if(PlayerHasItem(ItemType.Goods, 300020))
+    {
+        SetSpEffect(10000, 10010200);
+        SetSpEffect(10000, 10010201);
+        SetSpEffect(10000, 10010202);
+        SetSpEffect(10000, 10010203);
+        SetSpEffect(10000, 10010204);
+    }
+    
+    // Warlord
+    if(PlayerHasItem(ItemType.Goods, 300021))
+    {
+        SetSpEffect(10000, 10010210);
+        SetSpEffect(10000, 10010211);
+        SetSpEffect(10000, 10010212);
+        SetSpEffect(10000, 10010213);
+        SetSpEffect(10000, 10010214);
+    }
+    
+    // Knave
+    if(PlayerHasItem(ItemType.Goods, 300030))
+    {
+        SetSpEffect(10000, 10010300);
+        SetSpEffect(10000, 10010301);
+    }
+    
+    // Assassin
+    if(PlayerHasItem(ItemType.Goods, 300031))
+    {
+        SetSpEffect(10000, 10010310);
+        SetSpEffect(10000, 10010311);
+    }
+    
+    // Exile
+    if(PlayerHasItem(ItemType.Goods, 300040))
+    {
+        SetSpEffect(10000, 10010400);
+    }
+    
+    // Mercenary
+    if(PlayerHasItem(ItemType.Goods, 300041))
+    {
+        SetSpEffect(10000, 10010410);
+    }
+    
+    // Samurai
+    if(PlayerHasItem(ItemType.Goods, 300050))
+    {
+        SetSpEffect(10000, 10010500);
+    }
+    
+    // Shinobi
+    if(PlayerHasItem(ItemType.Goods, 300051))
+    {
+        SetSpEffect(10000, 10010510);
+    }
+    
+    // Archer
+    if(PlayerHasItem(ItemType.Goods, 300060))
+    {
+        SetSpEffect(10000, 10010600);
+    }
+    
+    // Ranger
+    if(PlayerHasItem(ItemType.Goods, 300061))
+    {
+        SetSpEffect(10000, 10010610);
+    }
+    
+    // Apprentice
+    if(PlayerHasItem(ItemType.Goods, 300070))
+    {
+        SetSpEffect(10000, 10010700);
+    }
+    
+    // Sorcerer
+    if(PlayerHasItem(ItemType.Goods, 300071))
+    {
+        SetSpEffect(10000, 10010710);
+    }
+    
+    // Disciple
+    if(PlayerHasItem(ItemType.Goods, 300080))
+    {
+        SetSpEffect(10000, 10010800);
+    }
+    
+    // Priest
+    if(PlayerHasItem(ItemType.Goods, 300081))
+    {
+        SetSpEffect(10000, 10010810);
+    }
+    
+    // Apostle
+    if(PlayerHasItem(ItemType.Goods, 300090))
+    {
+        SetSpEffect(10000, 10010900);
+    }
+    
+    // Noble
+    if(PlayerHasItem(ItemType.Goods, 300091))
+    {
+        SetSpEffect(10000, 10010910);
+    }
 });
 
 // Level Warp logic
@@ -6988,6 +7131,28 @@ $Event(10400, Restart, function() {
     {
         SetSpEffect(400005000, 10001020);
     }
+    
+    // Restore HP so they are at max HP after the adjustments
+    SetSpEffect(400005000, 10001030);
+});
+
+// Godkiller debuff
+$Event(10401, Restart, function() {
+    // Apostle
+    if(CharacterHasSpEffect(10000, 10010900, 0, 1))
+    {
+        SetSpEffect(400005010, 10010901);
+    }
+    
+    // Noble
+    if(CharacterHasSpEffect(10000, 10010910, 0, 1))
+    {
+        SetSpEffect(400005010, 10010911);
+    }
+    
+    WaitFixedTimeSeconds(1);
+    
+    RestartEvent();
 });
 
 //-----------------------------------

@@ -2,80 +2,230 @@
 # Wretch -> Accursed
 #-------------------------------------------
 Equipment:
-- Club
+11010000 Club
 
-Class Skill: Furtive Blessing
-- Upon taking lethal damage, instead the Wretch will remain at 1 HP. This effect can only occur once per life.
--> Heals to 100% HP.
+300000 Class Skill: Furtive Blessing
+- Upon taking lethal damage, instead the Wretch will remain at 1 HP. 
+- This effect can only occur once per life.
 
-#-------------------------------------------
-# Mage -> Archmage
-#-------------------------------------------
-Equipment:
-Dagger
-Staff
-2 Sorceries
+# Accursed
+23020000 Great Club
 
-Class Skill: Clear Mind
-- Gain X FP per second.
--> Gain Y FP per second.
+300001 Class Skill: Furtive Blessing
+- Upon taking lethal damage, instead the Wretch will heal up to 100% HP. 
+- This effect can only occur once per life.
 
-#-------------------------------------------
-# Cleric -> Priest
-#-------------------------------------------
-Equipment:
-Mace
-Seal
-2 Incantations
-
-Class Skill: Divine Favour
-- Gain X HP per second.
--> Gain Y HP per second.
-
-#-------------------------------------------
-# Dragonkin -> Dragonlord
-#-------------------------------------------
-Apply dragon eye effect
-
-Equipment: 
-Claws
-Seal
-2 Fire Incantations
-
-Class Skill: Scalehide
-- Gain +80% Fire abosorption
--> Gain immunity to Fire.
- 
 #-------------------------------------------
 # Soldier -> Knight
 #-------------------------------------------
 Equipment:
-Longsword -> Greatsword
-Shield
+2000000 Longsword
+31000000 Kite Shield
 
-Class Skill: Resolute
+1100000 Chain Coif
+1100100 Chain Armor
+1100200 Chain Gauntlets
+1100300 Chain Leggings
+
+300010 Class Skill: Resolute
 - Gain immunity to stagger below 50% HP.
--> Gain immunity to stagger. 
- 
+
+# Knight
+1500000 Knight Helm 
+1500100 Knight Armor
+1500200 Knight Gauntlets
+1500300 Knight Greaves
+
+300011 Class Skill: Resolute
+- Gain immunity to stagger. 
+
 #-------------------------------------------
 # Barbarian -> Warlord
 #-------------------------------------------
 Equipment:
-Axe
-Dagger
+14000000 Battle Axe
+31230000 Large Leather Shield
 
-Class Skill: Undying Rage
-- Boost damage by up to X% based on amount of HP lost.
--> Boost damage by up to Y% based on amount of HP lost.
+730000 Champion Headband
+730100 Champion Pauldron
+730200 Champion Bracerers
+730300 Champion Gaiters
+
+300020 Class Skill: Undying Rage
+- Boost damage by up to 25% based on current HP.
+
+# Warlord
+15000000 Greataxe
+
+780000 Veteran's Helm
+780100 Veteran's Armor
+780200 Veteran's Gauntlets
+780300 Veteran's Greaves
+
+300021 Class Skill: Undying Rage
+- Boost damage by up to 50% based on current HP.
 
 #-------------------------------------------
 # Knave -> Assassin
 #-------------------------------------------
 Equipment: 
-Rapier
-Buckler
+7020000 Shotel
+1140000 Bloodstained Dagger
+30000000 Buckler
 
-Class Skill: Silent Movements
-- Reduces eye and ear detection of enemies by 50%
-- Reduces eye and ear detection of enemies by 90%
+1401000 Bandit Mask
+930200 Bandit Manchettes
+930300 Bandit Boots
+931100 Bandit Garb
 
+300030 Class Skill: Art of Stealth
+- Reduces eye and ear detection of enemies by 60%
+
+# Assassin
+300031 Class Skill: Art of Stealth
+- Reduces eye and ear detection of enemies by 80%
+
+#-------------------------------------------
+# Exile -> Mercenary
+#-------------------------------------------
+Equipment: 
+7000000 Falchion
+30090000 Riveted Wooden Shield
+
+190000 Exile Hood
+190100 Exile Armor
+190200 Exile Gauntlets
+190300 Exile Greaves
+
+300040 Class Skill: Haste
+- Moves 10% faster
+
+# Mercenary
+8020000 Dismounter
+
+50000 Kaiden Helm
+50100 Kaiden Armor
+50200 Kaiden Gauntlets
+50300 Kaiden Trousers
+
+300041 Class Skill: Haste
+- Moves 20% faster
+
+#-------------------------------------------
+# Samurai -> Shinobi
+#-------------------------------------------
+Equipment: 
+9000000 Uchigatana
+1020000 Parrying Dagger
+
+870000 Land of Reeds Helm
+870100 Land of Reeds Armor
+870200 Land of Reeds Gauntlets
+870300 Land of Reeds Greaves
+
+300050 Class Skill: Rigorous Training
+- Reduce the cost of Skills by 25%.
+
+# Shinobi
+9040000 Rivers of Blood
+
+300051 Class Skill: Rigorous Training
+- Reduce the cost of Skills by 50%.
+
+#-------------------------------------------
+# Archer -> Ranger
+#-------------------------------------------
+Equipment:
+40000000 Shortbow
+1000000 Dagger
+31010000 Marred Leather Shield
+
+370000 Aristocrat Headband
+370100 Aristocrat Garb
+370300 Aristocrat Boots
+
+300060 Class Skill: Focused Shot
+- Holding a shot boosts ranged damage by up to 25%.
+
+# Ranger
+41070000 Black Bow
+
+300061 Class Skill: Focused Shot
+- Holding a shot boosts ranged damage by up to 50%.
+
+#-------------------------------------------
+# Apprentice -> Sorcerer
+#-------------------------------------------
+Equipment:
+2210800 Magic Cane Sword
+33000000 Glintstone Staff
+4000 Glintstone Pebble
+4030 Shard Spiral
+4021 Comet
+
+990100 Errant Sorcerer Robe
+990200 Errant Sorcerer Manchettes
+990300 Errant Sorcerer Boots
+
+300070 Class Skill: Clear Mind
+- Increases the rate of FP regeneration by 100%.
+
+# Sorcerer
+4130 Terra Magicus
+
+300071 Class Skill: Clear Mind
+- Increases the rate of FP regeneration by 200%.
+
+#-------------------------------------------
+# Disciple -> Priest
+#-------------------------------------------
+Equipment:
+11000000 Mace
+34000000 Finger Seal
+6421 Heal
+6700 Discus Of Light
+6740 Immutable Shield
+
+620000 Prophet Blindfold
+622100 Prophet Robe
+620300 Prophet Trousers
+
+300080 Class Skill: Divine Favour
+- Increases the rate of HP regeneration by 50%.
+
+# Priest
+6423 Lord's Heal
+6701 Triple Rings Of Light
+6600 Golden Vow
+
+300081 Class Skill: Divine Favour
+- Increases the rate of HP regeneration by 100%.
+
+#-------------------------------------------
+# Apostle -> Noble
+#-------------------------------------------
+Equipment: 
+21000000 Caestus
+34010000 Godslayer's Seal
+6230 Scouring Black Flame
+
+520000 Godskin Apostle Hood
+520100 Godskin Apostle Robe
+520200 Godskin Apostle Bracelets 
+520300 Godskin Apostle Trousers
+
+300090 Class Skill: Godkiller
+- Bosses take +25% more damage.
+
+# Noble
+6230 Scouring Black Flame
+6250 Black Flame Blade
+6260 Black Flame's Protection
+
+530000 Godskin Noble Hood
+530100 Godskin Noble Robe
+530200 Godskin Noble Bracelets 
+530300 Godskin Noble Trousers
+
+300091 Class Skill: Godkiller
+- Bosses take +50% more damage.

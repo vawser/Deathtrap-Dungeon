@@ -4,7 +4,9 @@
   "GameType": 8,
   "PinnedParams": [
     "WeatherAssetReplaceParam",
-    "WeatherAssetCreateParam"
+    "WeatherAssetCreateParam",
+    "EquipParamGoods",
+    "SpEffectParam"
   ],
   "PinnedRows": {},
   "PinnedFields": {},

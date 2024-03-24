@@ -3,6 +3,9 @@
 #-------------------------------------
 The player must venture through a dungeon filled with traps, danger and death!
 
+Player:
+Starts with no healing items, but has passive HP and FP regeneration.
+
 Design:
  Player starts in the "Trial of Champions" map.
  Here they can enter the dungeon, or interact with the Enchantress or Blacksmith.
