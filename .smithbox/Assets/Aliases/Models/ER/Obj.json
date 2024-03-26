@@ -476,6 +476,335 @@
         "asset",
         "catacombs"
       ]
+    },
+    {
+      "id": "aeg218_050",
+      "name": "Barricade",
+      "tags": [
+        "asset"
+      ]
+    },
+    {
+      "id": "aeg003_011",
+      "name": "Brazier",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_012",
+      "name": "Brazier",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_050",
+      "name": "Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_052",
+      "name": "Double Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_054",
+      "name": "Wrapped Wood Pile",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_055",
+      "name": "Sack Pile",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_056",
+      "name": "Pot Clutter",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_057",
+      "name": "Wrapped Barrels",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_058",
+      "name": "Pallet of Crates",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_059",
+      "name": "Weapons Table",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_061",
+      "name": "Bench",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_062",
+      "name": "Bench with Weapons",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_063",
+      "name": "Wagon",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_064",
+      "name": "Long Wagon",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_066",
+      "name": "Coffin Lid",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_067",
+      "name": "Coffin",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_068",
+      "name": "Stone Coffin",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_069",
+      "name": "Wooden Plank Wall",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_070",
+      "name": "Wooden Plank Wall",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_071",
+      "name": "Suspended Brazier",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_078",
+      "name": "Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_079",
+      "name": "Trio of Sacks",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_080",
+      "name": "Broken Wagon with Sacks",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_081",
+      "name": "Smashed Barrel Pallet",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_082",
+      "name": "Smashed Sack Pallet",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_083",
+      "name": "Smashed Pots",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_084",
+      "name": "Smashed Barrels",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_085",
+      "name": "Smashed Sacks",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_086",
+      "name": "Smashed Pot",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_087",
+      "name": "Ornate Stone Coffin",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_089",
+      "name": "Deep Wagon",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_125",
+      "name": "Royal Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_126",
+      "name": "Royal Double Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_127",
+      "name": "Royal Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_128",
+      "name": "Redmane Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_129",
+      "name": "Redmane Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_130",
+      "name": "Redmane Double Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_131",
+      "name": "Raya Lucaria Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_132",
+      "name": "Raya Lucaria Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_133",
+      "name": "Raya Lucaria Double Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_134",
+      "name": "Golden Order Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_135",
+      "name": "Golden Order Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_136",
+      "name": "Golden Order Double Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_137",
+      "name": "Red Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_138",
+      "name": "Red Tent",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "id": "aeg003_139",
+      "name": "Red Double Tent",
+      "tags": [
+        ""
+      ]
     }
   ]
 }

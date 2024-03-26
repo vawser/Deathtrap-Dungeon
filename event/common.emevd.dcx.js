@@ -6573,16 +6573,10 @@ $Event(9950, Default, function(X0_4, X4_4) {
 // Deathtrap Dungeon: Core
 //-----------------------------------
 $Event(10000, Default, function() {
-    InitializeEvent(0, 10001, 0); // Trial of Champions warp
-    
-    //****************
     // Defaults
-    //****************
     InitializeEvent(0, 10002, 0); // Default Effects
     
-    //****************
     // Class Skills
-    //****************
     InitializeEvent(0, 10003, 300000, 10010000); // Wretch
     InitializeEvent(1, 10003, 300001, 10010010); // Accursed
     InitializeEvent(2, 10003, 300010, 10010100); // Soldier
@@ -6614,36 +6608,18 @@ $Event(10000, Default, function() {
     InitializeEvent(28, 10003, 300090, 10010900); // Apostle
     InitializeEvent(29, 10003, 300091, 10010910); // Noble
     
-    //****************
     // Enemy Group Effects
-    //****************
     InitializeEvent(0, 10004, 10010900, 10010901, 400005010); // Apostle: Godkiller
     InitializeEvent(1, 10004, 10010910, 10010911, 400005010); // Noble: Godkiller
     
-    //****************
     // Level Warp Logic
-    //****************
     InitializeEvent(0, 10010, 0);
     
-    //****************
     // Treasure Logic
-    //****************
     InitializeEvent(0, 10020, 0);
     
-    //****************
     // Enemy Scaling
-    //****************
     InitializeEvent(0, 10030, 0);
-});
-
-//-----------------------------------
-// Trial of Champions Warp
-//-----------------------------------
-$Event(10001, Default, function() {
-    WaitFor(EventFlag(1047610010));
-    SetEventFlag(0, 1047610010, OFF);
-    
-    WarpPlayer(45, 2, 0, 0, 45020200, -1);
 });
 
 //-----------------------------------

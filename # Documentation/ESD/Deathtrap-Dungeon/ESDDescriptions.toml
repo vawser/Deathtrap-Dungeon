@@ -1,4 +1,6 @@
 title = "ESDDescriptions"
 [maps.m00_00_00_00]
 1000 = "Grace"
-1200 = "Statue of Rebirth"
+1200 = "Dungeon Start"
+1300 = "Blacksmith"
+1400 = "Enchantress"
