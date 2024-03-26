@@ -6,7 +6,9 @@
     "WeatherAssetReplaceParam",
     "WeatherAssetCreateParam",
     "EquipParamGoods",
-    "SpEffectParam"
+    "SpEffectParam",
+    "ShopLineupParam",
+    "ShopLineupParam_Recipe"
   ],
   "PinnedRows": {},
   "PinnedFields": {},

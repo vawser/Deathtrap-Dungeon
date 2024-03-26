@@ -126,3 +126,146 @@
 104963_0000 Systems
 #------------------------------------
 1049630000 
+
+1049630100 Rune of Lineage
+1049630110 Rune of Strength [1]
+1049630111 Rune of Strength [2]
+1049630112 Rune of Strength [3]
+1049630113 Rune of Strength [4]
+1049630114 Rune of Strength [5]
+1049630120 Rune of Dexerity [1]
+1049630121 Rune of Dexerity [2]
+1049630122 Rune of Dexerity [3]
+1049630123 Rune of Dexerity [4]
+1049630124 Rune of Dexerity [5]
+1049630130 Rune of Intelligence [1]
+1049630131 Rune of Intelligence [2]
+1049630132 Rune of Intelligence [3]
+1049630133 Rune of Intelligence [4]
+1049630134 Rune of Intelligence [5]
+1049630140 Rune of Faith [1]
+1049630141 Rune of Faith [2]
+1049630142 Rune of Faith [3]
+1049630143 Rune of Faith [4]
+1049630144 Rune of Faith [5]
+1049630150 Rune of Arcane [1]
+1049630151 Rune of Arcane [2]
+1049630152 Rune of Arcane [3]
+1049630153 Rune of Arcane [4]
+1049630154 Rune of Arcane [5]
+1049630160 Rune of Endurance [1]
+1049630161 Rune of Endurance [2]
+1049630162 Rune of Endurance [3]
+1049630163 Rune of Endurance [4]
+1049630164 Rune of Endurance [5]
+1049630170 Rune of Attunement [1]
+1049630171 Rune of Attunement [2]
+1049630172 Rune of Attunement [3]
+1049630173 Rune of Attunement [4]
+1049630174 Rune of Attunement [5]
+1049630180 Rune of Vigor [1]
+1049630181 Rune of Vigor [2]
+1049630182 Rune of Vigor [3]
+1049630183 Rune of Vigor [4]
+1049630184 Rune of Vigor [5]
+1049630190 Rune of Haste [1]
+1049630191 Rune of Haste [2]
+1049630192 Rune of Haste [3]
+1049630193 Rune of Haste [4]
+1049630194 Rune of Haste [5]
+1049630200 Rune of Levity [1]
+1049630201 Rune of Levity [2]
+1049630202 Rune of Levity [3]
+1049630203 Rune of Levity [4]
+1049630204 Rune of Levity [5]
+1049630210
+1049630211
+1049630212
+1049630213
+1049630214
+
+1049630500 Visibility: Rune of Lineage
+1049630510 Visibility: Rune of Strength [1]
+1049630511 Visibility: Rune of Strength [2]
+1049630512 Visibility: Rune of Strength [3]
+1049630513 Visibility: Rune of Strength [4]
+1049630514 Visibility: Rune of Strength [5]
+1049630520 Visibility: Rune of Dexerity [1]
+1049630521 Visibility: Rune of Dexerity [2]
+1049630522 Visibility: Rune of Dexerity [3]
+1049630523 Visibility: Rune of Dexerity [4]
+1049630524 Visibility: Rune of Dexerity [5]
+1049630530 Visibility: Rune of Intelligence [1]
+1049630531 Visibility: Rune of Intelligence [2]
+1049630532 Visibility: Rune of Intelligence [3]
+1049630533 Visibility: Rune of Intelligence [4]
+1049630534 Visibility: Rune of Intelligence [5]
+1049630540 Visibility: Rune of Faith [1]
+1049630541 Visibility: Rune of Faith [2]
+1049630542 Visibility: Rune of Faith [3]
+1049630543 Visibility: Rune of Faith [4]
+1049630544 Visibility: Rune of Faith [5]
+1049630550 Visibility: Rune of Arcane [1]
+1049630551 Visibility: Rune of Arcane [2]
+1049630552 Visibility: Rune of Arcane [3]
+1049630553 Visibility: Rune of Arcane [4]
+1049630554 Visibility: Rune of Arcane [5]
+1049630560 Visibility: Rune of Endurance [1]
+1049630561 Visibility: Rune of Endurance [2]
+1049630562 Visibility: Rune of Endurance [3]
+1049630563 Visibility: Rune of Endurance [4]
+1049630564 Visibility: Rune of Endurance [5]
+1049630570 Visibility: Rune of Attunement [1]
+1049630571 Visibility: Rune of Attunement [2]
+1049630572 Visibility: Rune of Attunement [3]
+1049630573 Visibility: Rune of Attunement [4]
+1049630574 Visibility: Rune of Attunement [5]
+1049630580 Visibility: Rune of Vigor [1]
+1049630581 Visibility: Rune of Vigor [2]
+1049630582 Visibility: Rune of Vigor [3]
+1049630583 Visibility: Rune of Vigor [4]
+1049630584 Visibility: Rune of Vigor [5]
+1049630590 Visibility: Rune of Haste [1]
+1049630591 Visibility: Rune of Haste [2]
+1049630592 Visibility: Rune of Haste [3]
+1049630593 Visibility: Rune of Haste [4]
+1049630594 Visibility: Rune of Haste [5]
+1049630600 Visibility: Rune of Levity [1]
+1049630601 Visibility: Rune of Levity [2]
+1049630602 Visibility: Rune of Levity [3]
+1049630603 Visibility: Rune of Levity [4]
+1049630604 Visibility: Rune of Levity [5]
+1049630610
+1049630611
+1049630612
+1049630613
+1049630614
+
+#------------------------------------
+104758_0000 Systems
+#------------------------------------
+1049580000 Blacksmith Stock
+
+1049580500 Enchantress Stock # FULL
+
+#------------------------------------
+104859_0000 Systems
+#------------------------------------
+1049590000 Blacksmith Stock
+
+1049590500 Enchantress Stock # 1049590510
+
+#------------------------------------
+104859_0000 Systems
+#------------------------------------
+1048590000 
+
+#------------------------------------
+104860_0000 Systems
+#------------------------------------
+1048600000 
+
+#------------------------------------
+104861_0000 Systems
+#------------------------------------
+1048610000 

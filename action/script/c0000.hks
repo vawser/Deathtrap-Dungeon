@@ -47,7 +47,7 @@ end
 -- Multi-Jump
 ------------------------------------------
 g_JumpCount = 0
-g_JumpCountMax = 2
+g_JumpCountMax = 1
 
 function TrackMultiJump()
     -- Reset jump count
@@ -55,66 +55,39 @@ function TrackMultiJump()
         g_JumpCount = 0
     end
     
-    -- Wearing "Techniques of the Windwalker"
-    if env(GetSpEffectID, 150999) == TRUE and g_JumpCount < g_JumpCountMax then
+    -- Assassin can triple jump
+    if env(GetSpEffectID, 10010310) == TRUE then
+        g_JumpCountMax = 2
+    end
     
-        -- Jump action has not occured within the last 0.5 seconds
-        -- And stamina is above 0
-        if env(GetSpEffectID, 150982) == FALSE and env(GetStamina) > 0 then
-        
-            -- Hold Jump
-            if env(ActionDuration, ACTION_ARM_JUMP) > 20 then
-                act(AddSpEffect, 150982) -- Jump action cooldown
-                
-                local mayJump = 0
-                local jumpWindow = 0
+    -- Is Knave or Assassin
+    if env(GetSpEffectID, 10010300) == TRUE or env(GetSpEffectID, 10010310) == TRUE then
+        if g_JumpCount < g_JumpCountMax then
+            -- Jump action has not occured within the last 0.5 seconds
+            -- And stamina is above 0
+            if env(GetSpEffectID, 10000060) == FALSE and env(GetStamina) > 0 then
+            
+                -- Hold Jump
+                if env(ActionDuration, ACTION_ARM_JUMP) > 20 then
+                    act(AddSpEffect, 10000060) -- Jump action cooldown
                     
-                -- Initial Jump Window: allow jump only in midair portion of anim for initial jump
-                if env(GetSpEffectID, 150980) == TRUE then
-                    jumpWindow = 1
-                end
-                
-                -- Multi-Jump Window: allow jump during start period of anim once midair
-                if env(GetSpEffectID, 150985) == TRUE then
-                    if env(GetSpEffectID, 150990) == TRUE or env(GetSpEffectID, 150991) == TRUE or env(GetSpEffectID, 150992) == TRUE then
+                    local jumpWindow = 0
+                        
+                    -- Initial Jump Window
+                    -- Allow jump only after reaching apex of jump arc
+                    if env(GetSpEffectID, 10000062) == TRUE then
                         jumpWindow = 1
                     end
-                end
-                
-                -- Can Jump
-                if jumpWindow == 1 then
-                    -- FP drain
-                    if env(GetSpEffectID, 150990) == FALSE then
-                        act(AddSpEffect, 150990) -- Timer
-                        act(AddSpEffect, 150995) -- FP Drain
-                        
-                        if env(GetFP) > 10 then
-                            mayJump = 1
-                        end
-                    elseif env(GetSpEffectID, 150991) == FALSE then
-                        act(AddSpEffect, 150991) -- Timer
-                        act(AddSpEffect, 150996) -- FP Drain
-                        
-                        if env(GetFP) > 20 then
-                            mayJump = 1
-                        end
-                    elseif env(GetSpEffectID, 150992) == FALSE then
-                        act(AddSpEffect, 150992) -- Timer
-                        act(AddSpEffect, 150997) -- FP Drain
-                        
-                        if env(GetFP) > 30 then
-                            mayJump = 1
-                        end
-                    else
-                        act(AddSpEffect, 150998) -- FP Drain
-                        
-                        if env(GetFP) > 40 then
-                            mayJump = 1
-                        end
+                    
+                    -- Fall Jump Window
+                    -- Allow jump whilst falling
+                    if env(GetSpEffectID, 10000063) == TRUE then
+                        jumpWindow = 1
                     end
                     
-                    if mayJump == 1 then
-                        act(AddSpEffect, 150981) -- Visual
+                    -- Can Jump
+                    if jumpWindow == 1 then
+                        act(AddSpEffect, 10000061) -- Visual
 
                         ExecMultiJump()
                     end

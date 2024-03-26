@@ -78,12 +78,12 @@ Equipment:
 930300 Bandit Boots
 931100 Bandit Garb
 
-300030 Class Skill: Art of Stealth
-- Reduces eye and ear detection of enemies by 60%
+300030 Class Skill: Acrobatics
+- Grants the ability to double jump.
 
 # Assassin
-300031 Class Skill: Art of Stealth
-- Reduces eye and ear detection of enemies by 80%
+300031 Class Skill: Acrobatics
+- Grants the ability to triple jump.
 
 #-------------------------------------------
 # Exile -> Mercenary

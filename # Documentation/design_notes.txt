@@ -3,22 +3,20 @@
 #-------------------------------------
 The player must venture through a dungeon filled with traps, danger and death!
 
-Player:
-Starts with no healing items, but has passive HP and FP regeneration.
+# Crafting
+Player should be able to craft arrows and consumables within the dungeons:
+ - Add new pickup that provides "Sticks"
+ - Add new pickup that provides "Featherleaf"
+ - Add new pickup that provides "Distilled Sorcery"
+ - Add new pickup that provides "Distilled Flame"
+ - Add new pickup that provides "Distilled Lightning"
+ - Add new pickup that provides "Distilled Divinity"
+ 
+# Progression
+Player should face a 'final' boss after the last dungeon clear:
+ Malenia/Godrick/Rennala/Radahn?
 
-Design:
- Player starts in the "Trial of Champions" map.
- Here they can enter the dungeon, or interact with the Enchantress or Blacksmith.
+After victory, port them the small island in the Trial of Champions and display a bridge to allow them to re-play if they want
  
- Upon death, the player is sent to the "Jail", where they need to select their successor.
- Upon death, move the soulstain to the "Trial of Champions" from any of the dungeon maps.
- 
-Successors:
-  Similar to Rogue Legacy, upon death the player can choose from 3 'classes' with one trait each, upon selecting they will be teleported back into the open area.
-
-Treasure:
- Semi-random, treasure locations will be randomised, and the loot itself will be distributed via a 'bucket' method within EMEVD on pickup
- 
-Dungeons:
- Each level will have 3 sets of enemies: Default, Alt 1 and Alt 2. Which are used will be randomised each time.
- 
+# Maps
+Add "Attunement" statues that allow the player to swap spells within a map

@@ -1,0 +1,96 @@
+# Rune System
+Purchased from the Enchantress, provides permanent progression unlocks.
+Tiered runes work by replacing the older tier in the menu, 
+e.g. if Tier 1 is purchased, hide it and show Tier 2
+
+Check for item after purchase: set flag, then on subsequent loads, check for flag, give item
+
+# Runes
+-- Progression: 3082
+- Rune of Lineage
+Increases the number of options for Sucessors by 1.
+
+-- Stats: 3078
+- Rune of Strength (1/2/3/4/5)
+Increases baseline Strength by 5 per tier.
+
+- Rune of Dexterity (1/2/3/4/5)
+Increases baseline Dexterity by 5 per tier.
+
+- Rune of Intelligence (1/2/3/4/5)
+Increases baseline Intelligence by 5 per tier.
+
+- Rune of Faith (1/2/3/4/5)
+Increases baseline Faith by 5 per tier.
+
+- Rune of Arcane (1/2/3/4/5)
+Increases baseline Arcane by 5 per tier.
+
+- Rune of Endurance (1/2/3/4/5)
+Increases baseline Endurance by 5 per tier.
+
+- Rune of Attunement (1/2/3/4/5)
+Increases baseline Attunement by 5 per tier.
+
+- Rune of Vigor (1/2/3/4/5)
+Increases baseline Vigor by 5 per tier.
+
+-- Attributes: 3079
+- Rune of Haste (1/2/3/4/5)
+Increases baseline Move Speed by 5% per tier.
+
+- Rune of Levity (1/2/3/4/5)
+Increases baseline Equipment Load by 10% per tier.
+
+ID,Name
+302000,Rune of Lineage
+302010,Rune of Strength [1]
+302011,Rune of Strength [2]
+302012,Rune of Strength [3]
+302013,Rune of Strength [4]
+302014,Rune of Strength [5]
+302020,Rune of Dexterity [1]
+302021,Rune of Dexterity [2]
+302022,Rune of Dexterity [3]
+302023,Rune of Dexterity [4]
+302024,Rune of Dexterity [5]
+302030,Rune of Intelligence [1]
+302031,Rune of Intelligence [2]
+302032,Rune of Intelligence [3]
+302033,Rune of Intelligence [4]
+302034,Rune of Intelligence [5]
+302040,Rune of Faith [1]
+302041,Rune of Faith [2]
+302042,Rune of Faith [3]
+302043,Rune of Faith [4]
+302044,Rune of Faith [5]
+302050,Rune of Arcane [1]
+302051,Rune of Arcane [2]
+302052,Rune of Arcane [3]
+302053,Rune of Arcane [4]
+302054,Rune of Arcane [5]
+302060,Rune of Endurance [1]
+302061,Rune of Endurance [2]
+302062,Rune of Endurance [3]
+302063,Rune of Endurance [4]
+302064,Rune of Endurance [5]
+302070,Rune of Attunement [1]
+302071,Rune of Attunement [2]
+302072,Rune of Attunement [3]
+302073,Rune of Attunement [4]
+302074,Rune of Attunement [5]
+302080,Rune of Vigor [1]
+302081,Rune of Vigor [2]
+302082,Rune of Vigor [3]
+302083,Rune of Vigor [4]
+302084,Rune of Vigor [5]
+302090,Rune of Haste [1]
+302091,Rune of Haste [2]
+302092,Rune of Haste [3]
+302093,Rune of Haste [4]
+302094,Rune of Haste [5]
+302100,Rune of Levity [1]
+302101,Rune of Levity [2]
+302102,Rune of Levity [3]
+302103,Rune of Levity [4]
+302104,Rune of Levity [5]

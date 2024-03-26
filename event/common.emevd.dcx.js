@@ -6591,10 +6591,8 @@ $Event(10000, Default, function() {
     InitializeEvent(11, 10003, 300021, 10010212); // Warlord 3
     InitializeEvent(12, 10003, 300021, 10010213); // Warlord 4
     InitializeEvent(13, 10003, 300021, 10010214); // Warlord 5
-    InitializeEvent(14, 10003, 300030, 10010300); // Knave 1
-    InitializeEvent(15, 10003, 300030, 10010301); // Knave 2
-    InitializeEvent(16, 10003, 300031, 10010310); // Assassin 1
-    InitializeEvent(17, 10003, 300031, 10010311); // Assassin 2
+    InitializeEvent(14, 10003, 300030, 10010300); // Knave
+    InitializeEvent(16, 10003, 300031, 10010310); // Assassin
     InitializeEvent(18, 10003, 300040, 10010400); // Exile
     InitializeEvent(19, 10003, 300041, 10010410); // Mercenary
     InitializeEvent(20, 10003, 300050, 10010500); // Samurai
@@ -6620,12 +6618,31 @@ $Event(10000, Default, function() {
     
     // Enemy Scaling
     InitializeEvent(0, 10030, 0);
+    
+    // Runes
+    InitializeEvent(0, 10040, 0);
+    
+    // Clear the status bars
+    WaitFixedTimeSeconds(0.1);
+    
+    SetSpEffect(10000, 10001040);
+    SetSpEffect(10000, 10001041);
+    SetSpEffect(10000, 10001042);
+    SetSpEffect(10000, 10001043);
+    SetSpEffect(10000, 10001044);
+    SetSpEffect(10000, 10001045);
+    SetSpEffect(10000, 10001046);
 });
 
 //-----------------------------------
 // Default Effects
 //-----------------------------------
 $Event(10002, Restart, function() {
+    if(!EventFlag(60120))
+    {
+        SetEventFlag(0, 60120, ON);
+    }
+
     SetSpEffect(10000, 10000040);
 });
 
@@ -7063,8 +7080,325 @@ $Event(10030, Restart, function() {
 });
 
 //-----------------------------------
+// Runes
+//-----------------------------------
+$Event(10040, Default, function() {
+    
+    // Shop Visibility
+    InitializeEvent(0, 10041, 1049630100, 1049630500); // Rune of Lineage
+    InitializeEvent(1, 10041, 1049630110, 1049630510); // Rune of Strength [1]
+    InitializeEvent(2, 10041, 1049630120, 1049630520); // Rune of Dexterity [1]
+    InitializeEvent(3, 10041, 1049630130, 1049630530); // Rune of Intelligence [1]
+    InitializeEvent(4, 10041, 1049630140, 1049630540); // Rune of Faith [1]
+    InitializeEvent(5, 10041, 1049630150, 1049630550); // Rune of Arcane [1]
+    InitializeEvent(6, 10041, 1049630160, 1049630560); // Rune of Endurance [1]
+    InitializeEvent(7, 10041, 1049630170, 1049630570); // Rune of Attunement [1]
+    InitializeEvent(8, 10041, 1049630180, 1049630580); // Rune of Vigor [1]
+    InitializeEvent(9, 10041, 1049630190, 1049630590); // Rune of Haste [1]
+    InitializeEvent(10, 10041, 1049630200, 1049630600); // Rune of Levity [1]
+    
+    InitializeEvent(10, 10042, 1049630111, 1049630511, 1049630110); // Rune of Strength [2]
+    InitializeEvent(11, 10042, 1049630112, 1049630512, 1049630111); // Rune of Strength [3]
+    InitializeEvent(12, 10042, 1049630113, 1049630513, 1049630112); // Rune of Strength [4]
+    InitializeEvent(13, 10042, 1049630114, 1049630514, 1049630113); // Rune of Strength [5]
+    
+    InitializeEvent(20, 10042, 1049630121, 1049630521, 1049630120); // Rune of Dexerity [2]
+    InitializeEvent(21, 10042, 1049630122, 1049630522, 1049630121); // Rune of Dexerity [3]
+    InitializeEvent(22, 10042, 1049630123, 1049630523, 1049630122); // Rune of Dexerity [4]
+    InitializeEvent(23, 10042, 1049630124, 1049630524, 1049630123); // Rune of Dexerity [5]
+   
+    InitializeEvent(30, 10042, 1049630131, 1049630531, 1049630130); // Rune of Intelligence [2]
+    InitializeEvent(31, 10042, 1049630132, 1049630532, 1049630131); // Rune of Intelligence [3]
+    InitializeEvent(32, 10042, 1049630133, 1049630533, 1049630132); // Rune of Intelligence [4]
+    InitializeEvent(33, 10042, 1049630134, 1049630534, 1049630133); // Rune of Intelligence [5]
+    
+    InitializeEvent(40, 10042, 1049630141, 1049630541, 1049630140); // Rune of Faith [2]
+    InitializeEvent(41, 10042, 1049630142, 1049630542, 1049630141); // Rune of Faith [3]
+    InitializeEvent(42, 10042, 1049630143, 1049630543, 1049630142); // Rune of Faith [4]
+    InitializeEvent(43, 10042, 1049630144, 1049630544, 1049630143); // Rune of Faith [5]
+    
+    InitializeEvent(50, 10042, 1049630151, 1049630551, 1049630150); // Rune of Arcane [2]
+    InitializeEvent(51, 10042, 1049630152, 1049630552, 1049630151); // Rune of Arcane [3]
+    InitializeEvent(52, 10042, 1049630153, 1049630553, 1049630152); // Rune of Arcane [4]
+    InitializeEvent(53, 10042, 1049630154, 1049630554, 1049630153); // Rune of Arcane [5]
+    
+    InitializeEvent(60, 10042, 1049630161, 1049630561, 1049630160); // Rune of Endurance [2]
+    InitializeEvent(61, 10042, 1049630162, 1049630562, 1049630161); // Rune of Endurance [3]
+    InitializeEvent(62, 10042, 1049630163, 1049630563, 1049630162); // Rune of Endurance [4]
+    InitializeEvent(63, 10042, 1049630164, 1049630564, 1049630163); // Rune of Endurance [5]
+    
+    InitializeEvent(70, 10042, 1049630171, 1049630571, 1049630170); // Rune of Attunement [2]
+    InitializeEvent(71, 10042, 1049630172, 1049630572, 1049630171); // Rune of Attunement [3]
+    InitializeEvent(72, 10042, 1049630173, 1049630573, 1049630172); // Rune of Attunement [4]
+    InitializeEvent(73, 10042, 1049630174, 1049630574, 1049630173); // Rune of Attunement [5]
+    
+    InitializeEvent(80, 10042, 1049630181, 1049630581, 1049630180); // Rune of Vigor [2]
+    InitializeEvent(81, 10042, 1049630182, 1049630582, 1049630181); // Rune of Vigor [3]
+    InitializeEvent(82, 10042, 1049630183, 1049630583, 1049630182); // Rune of Vigor [4]
+    InitializeEvent(83, 10042, 1049630184, 1049630584, 1049630183); // Rune of Vigor [5]
+    
+    InitializeEvent(90, 10042, 1049630191, 1049630591, 1049630190); // Rune of Haste [2]
+    InitializeEvent(91, 10042, 1049630192, 1049630592, 1049630191); // Rune of Haste [3]
+    InitializeEvent(92, 10042, 1049630193, 1049630593, 1049630192); // Rune of Haste [4]
+    InitializeEvent(93, 10042, 1049630194, 1049630594, 1049630193); // Rune of Haste [5]
+    
+    InitializeEvent(100, 10042, 1049630201, 1049630601, 1049630200); // Rune of Levity [2]
+    InitializeEvent(101, 10042, 1049630202, 1049630602, 1049630201); // Rune of Levity [3]
+    InitializeEvent(102, 10042, 1049630203, 1049630603, 1049630202); // Rune of Levity [4]
+    InitializeEvent(103, 10042, 1049630204, 1049630604, 1049630203); // Rune of Levity [5]
+    
+    // Unlocks on Purchase
+    InitializeEvent(0, 10045, 1049630100, 302000); // Rune of Lineage
+    
+    InitializeEvent(1, 10045, 1049630110, 302010); // Rune of Strength [1]
+    InitializeEvent(2, 10045, 1049630111, 302011); // Rune of Strength [2]
+    InitializeEvent(3, 10045, 1049630112, 302012); // Rune of Strength [3]
+    InitializeEvent(4, 10045, 1049630113, 302013); // Rune of Strength [4]
+    InitializeEvent(5, 10045, 1049630114, 302014); // Rune of Strength [5]
+    
+    InitializeEvent(10, 10045, 1049630120, 302020); // Rune of Dexterity [1]
+    InitializeEvent(11, 10045, 1049630121, 302021); // Rune of Dexterity [2]
+    InitializeEvent(12, 10045, 1049630122, 302022); // Rune of Dexterity [3]
+    InitializeEvent(13, 10045, 1049630123, 302023); // Rune of Dexterity [4]
+    InitializeEvent(14, 10045, 1049630124, 302024); // Rune of Dexterity [5]
+    
+    InitializeEvent(20, 10045, 1049630130, 302030); // Rune of Intelligence [1]
+    InitializeEvent(21, 10045, 1049630131, 302031); // Rune of Intelligence [2]
+    InitializeEvent(22, 10045, 1049630132, 302032); // Rune of Intelligence [3]
+    InitializeEvent(23, 10045, 1049630133, 302033); // Rune of Intelligence [4]
+    InitializeEvent(24, 10045, 1049630134, 302034); // Rune of Intelligence [5]
+    
+    InitializeEvent(30, 10045, 1049630140, 302040); // Rune of Faith [1]
+    InitializeEvent(31, 10045, 1049630141, 302041); // Rune of Faith [2]
+    InitializeEvent(32, 10045, 1049630142, 302042); // Rune of Faith [3]
+    InitializeEvent(33, 10045, 1049630143, 302043); // Rune of Faith [4]
+    InitializeEvent(34, 10045, 1049630144, 302044); // Rune of Faith [5]
+    
+    InitializeEvent(40, 10045, 1049630150, 302050); // Rune of Arcane [1]
+    InitializeEvent(41, 10045, 1049630151, 302051); // Rune of Arcane [2]
+    InitializeEvent(42, 10045, 1049630152, 302052); // Rune of Arcane [3]
+    InitializeEvent(43, 10045, 1049630153, 302053); // Rune of Arcane [4]
+    InitializeEvent(44, 10045, 1049630154, 302054); // Rune of Arcane [5]
+   
+    InitializeEvent(50, 10045, 1049630160, 302060); // Rune of Endurance [1]
+    InitializeEvent(51, 10045, 1049630161, 302061); // Rune of Endurance [2]
+    InitializeEvent(52, 10045, 1049630162, 302062); // Rune of Endurance [3]
+    InitializeEvent(53, 10045, 1049630163, 302063); // Rune of Endurance [4]
+    InitializeEvent(54, 10045, 1049630164, 302064); // Rune of Endurance [5]
+    
+    InitializeEvent(60, 10045, 1049630170, 302070); // Rune of Attunement [1]
+    InitializeEvent(61, 10045, 1049630171, 302071); // Rune of Attunement [2]
+    InitializeEvent(62, 10045, 1049630172, 302072); // Rune of Attunement [3]
+    InitializeEvent(63, 10045, 1049630173, 302073); // Rune of Attunement [4]
+    InitializeEvent(64, 10045, 1049630174, 302074); // Rune of Attunement [5]
+    
+    InitializeEvent(70, 10045, 1049630180, 302080); // Rune of Vigor [1]
+    InitializeEvent(71, 10045, 1049630181, 302081); // Rune of Vigor [2]
+    InitializeEvent(72, 10045, 1049630182, 302082); // Rune of Vigor [3]
+    InitializeEvent(73, 10045, 1049630183, 302083); // Rune of Vigor [4]
+    InitializeEvent(74, 10045, 1049630184, 302084); // Rune of Vigor [5]
+    
+    InitializeEvent(80, 10045, 1049630190, 302090); // Rune of Haste [1]
+    InitializeEvent(81, 10045, 1049630191, 302091); // Rune of Haste [2]
+    InitializeEvent(82, 10045, 1049630192, 302092); // Rune of Haste [3]
+    InitializeEvent(83, 10045, 1049630193, 302093); // Rune of Haste [4]
+    InitializeEvent(84, 10045, 1049630194, 302094); // Rune of Haste [5]
+    
+    InitializeEvent(90, 10045, 1049630200, 302100); // Rune of Levity [1]
+    InitializeEvent(91, 10045, 1049630201, 302101); // Rune of Levity [2]
+    InitializeEvent(92, 10045, 1049630202, 302102); // Rune of Levity [3]
+    InitializeEvent(93, 10045, 1049630203, 302103); // Rune of Levity [4]
+    InitializeEvent(94, 10045, 1049630204, 302104); // Rune of Levity [5]
+    
+    // Add Items for Existing Unlocks
+    InitializeEvent(0, 10046, 1049630100, 302000); // Rune of Lineage
+    
+    InitializeEvent(1, 10046, 1049630110, 302010); // Rune of Strength [1]
+    InitializeEvent(2, 10046, 1049630111, 302011); // Rune of Strength [2]
+    InitializeEvent(3, 10046, 1049630112, 302012); // Rune of Strength [3]
+    InitializeEvent(4, 10046, 1049630113, 302013); // Rune of Strength [4]
+    InitializeEvent(5, 10046, 1049630114, 302014); // Rune of Strength [5]
+    
+    InitializeEvent(10, 10046, 1049630120, 302020); // Rune of Dexterity [1]
+    InitializeEvent(11, 10046, 1049630121, 302021); // Rune of Dexterity [2]
+    InitializeEvent(12, 10046, 1049630122, 302022); // Rune of Dexterity [3]
+    InitializeEvent(13, 10046, 1049630123, 302023); // Rune of Dexterity [4]
+    InitializeEvent(14, 10046, 1049630124, 302024); // Rune of Dexterity [5]
+    
+    InitializeEvent(20, 10046, 1049630130, 302030); // Rune of Intelligence [1]
+    InitializeEvent(21, 10046, 1049630131, 302031); // Rune of Intelligence [2]
+    InitializeEvent(22, 10046, 1049630132, 302032); // Rune of Intelligence [3]
+    InitializeEvent(23, 10046, 1049630133, 302033); // Rune of Intelligence [4]
+    InitializeEvent(24, 10046, 1049630134, 302034); // Rune of Intelligence [5]
+    
+    InitializeEvent(30, 10046, 1049630140, 302040); // Rune of Faith [1]
+    InitializeEvent(31, 10046, 1049630141, 302041); // Rune of Faith [2]
+    InitializeEvent(32, 10046, 1049630142, 302042); // Rune of Faith [3]
+    InitializeEvent(33, 10046, 1049630143, 302043); // Rune of Faith [4]
+    InitializeEvent(34, 10046, 1049630144, 302044); // Rune of Faith [5]
+    
+    InitializeEvent(40, 10046, 1049630150, 302050); // Rune of Arcane [1]
+    InitializeEvent(41, 10046, 1049630151, 302051); // Rune of Arcane [2]
+    InitializeEvent(42, 10046, 1049630152, 302052); // Rune of Arcane [3]
+    InitializeEvent(43, 10046, 1049630153, 302053); // Rune of Arcane [4]
+    InitializeEvent(44, 10046, 1049630154, 302054); // Rune of Arcane [5]
+   
+    InitializeEvent(50, 10046, 1049630160, 302060); // Rune of Endurance [1]
+    InitializeEvent(51, 10046, 1049630161, 302061); // Rune of Endurance [2]
+    InitializeEvent(52, 10046, 1049630162, 302062); // Rune of Endurance [3]
+    InitializeEvent(53, 10046, 1049630163, 302063); // Rune of Endurance [4]
+    InitializeEvent(54, 10046, 1049630164, 302064); // Rune of Endurance [5]
+    
+    InitializeEvent(60, 10046, 1049630170, 302070); // Rune of Attunement [1]
+    InitializeEvent(61, 10046, 1049630171, 302071); // Rune of Attunement [2]
+    InitializeEvent(62, 10046, 1049630172, 302072); // Rune of Attunement [3]
+    InitializeEvent(63, 10046, 1049630173, 302073); // Rune of Attunement [4]
+    InitializeEvent(64, 10046, 1049630174, 302074); // Rune of Attunement [5]
+    
+    InitializeEvent(70, 10046, 1049630180, 302080); // Rune of Vigor [1]
+    InitializeEvent(71, 10046, 1049630181, 302081); // Rune of Vigor [2]
+    InitializeEvent(72, 10046, 1049630182, 302082); // Rune of Vigor [3]
+    InitializeEvent(73, 10046, 1049630183, 302083); // Rune of Vigor [4]
+    InitializeEvent(74, 10046, 1049630184, 302084); // Rune of Vigor [5]
+    
+    InitializeEvent(80, 10046, 1049630190, 302090); // Rune of Haste [1]
+    InitializeEvent(81, 10046, 1049630191, 302091); // Rune of Haste [2]
+    InitializeEvent(82, 10046, 1049630192, 302092); // Rune of Haste [3]
+    InitializeEvent(83, 10046, 1049630193, 302093); // Rune of Haste [4]
+    InitializeEvent(84, 10046, 1049630194, 302094); // Rune of Haste [5]
+    
+    InitializeEvent(90, 10046, 1049630200, 302100); // Rune of Levity [1]
+    InitializeEvent(91, 10046, 1049630201, 302101); // Rune of Levity [2]
+    InitializeEvent(92, 10046, 1049630202, 302102); // Rune of Levity [3]
+    InitializeEvent(93, 10046, 1049630203, 302103); // Rune of Levity [4]
+    InitializeEvent(94, 10046, 1049630204, 302104); // Rune of Levity [5]
+    
+    // Rune Effects
+    InitializeEvent(0, 10048, 1049630100, 10020100); // Rune of Lineage
+    
+    InitializeEvent(1, 10048, 1049630110, 10020000); // Rune of Strength [1]
+    InitializeEvent(2, 10048, 1049630111, 10020001); // Rune of Strength [2]
+    InitializeEvent(3, 10048, 1049630112, 10020002); // Rune of Strength [3]
+    InitializeEvent(4, 10048, 1049630113, 10020003); // Rune of Strength [4]
+    InitializeEvent(5, 10048, 1049630114, 10020004); // Rune of Strength [5]
+    
+    InitializeEvent(10, 10048, 1049630120, 10020010); // Rune of Dexterity [1]
+    InitializeEvent(11, 10048, 1049630121, 10020011); // Rune of Dexterity [2]
+    InitializeEvent(12, 10048, 1049630122, 10020012); // Rune of Dexterity [3]
+    InitializeEvent(13, 10048, 1049630123, 10020013); // Rune of Dexterity [4]
+    InitializeEvent(14, 10048, 1049630124, 10020014); // Rune of Dexterity [5]
+    
+    InitializeEvent(20, 10048, 1049630130, 10020020); // Rune of Intelligence [1]
+    InitializeEvent(21, 10048, 1049630131, 10020021); // Rune of Intelligence [2]
+    InitializeEvent(22, 10048, 1049630132, 10020022); // Rune of Intelligence [3]
+    InitializeEvent(23, 10048, 1049630133, 10020023); // Rune of Intelligence [4]
+    InitializeEvent(24, 10048, 1049630134, 10020024); // Rune of Intelligence [5]
+    
+    InitializeEvent(30, 10048, 1049630140, 10020030); // Rune of Faith [1]
+    InitializeEvent(31, 10048, 1049630141, 10020031); // Rune of Faith [2]
+    InitializeEvent(32, 10048, 1049630142, 10020032); // Rune of Faith [3]
+    InitializeEvent(33, 10048, 1049630143, 10020033); // Rune of Faith [4]
+    InitializeEvent(34, 10048, 1049630144, 10020034); // Rune of Faith [5]
+    
+    InitializeEvent(40, 10048, 1049630150, 10020040); // Rune of Arcane [1]
+    InitializeEvent(41, 10048, 1049630151, 10020041); // Rune of Arcane [2]
+    InitializeEvent(42, 10048, 1049630152, 10020042); // Rune of Arcane [3]
+    InitializeEvent(43, 10048, 1049630153, 10020043); // Rune of Arcane [4]
+    InitializeEvent(44, 10048, 1049630154, 10020044); // Rune of Arcane [5]
+   
+    InitializeEvent(50, 10048, 1049630160, 10020050); // Rune of Endurance [1]
+    InitializeEvent(51, 10048, 1049630161, 10020051); // Rune of Endurance [2]
+    InitializeEvent(52, 10048, 1049630162, 10020052); // Rune of Endurance [3]
+    InitializeEvent(53, 10048, 1049630163, 10020053); // Rune of Endurance [4]
+    InitializeEvent(54, 10048, 1049630164, 10020054); // Rune of Endurance [5]
+    
+    InitializeEvent(60, 10048, 1049630170, 10020060); // Rune of Attunement [1]
+    InitializeEvent(61, 10048, 1049630171, 10020061); // Rune of Attunement [2]
+    InitializeEvent(62, 10048, 1049630172, 10020062); // Rune of Attunement [3]
+    InitializeEvent(63, 10048, 1049630173, 10020063); // Rune of Attunement [4]
+    InitializeEvent(64, 10048, 1049630174, 10020064); // Rune of Attunement [5]
+    
+    InitializeEvent(70, 10048, 1049630180, 10020070); // Rune of Vigor [1]
+    InitializeEvent(71, 10048, 1049630181, 10020071); // Rune of Vigor [2]
+    InitializeEvent(72, 10048, 1049630182, 10020072); // Rune of Vigor [3]
+    InitializeEvent(73, 10048, 1049630183, 10020073); // Rune of Vigor [4]
+    InitializeEvent(74, 10048, 1049630184, 10020074); // Rune of Vigor [5]
+    
+    InitializeEvent(80, 10045, 1049630190, 10020080); // Rune of Haste [1]
+    InitializeEvent(81, 10045, 1049630191, 10020081); // Rune of Haste [2]
+    InitializeEvent(82, 10045, 1049630192, 10020082); // Rune of Haste [3]
+    InitializeEvent(83, 10045, 1049630193, 10020083); // Rune of Haste [4]
+    InitializeEvent(84, 10045, 1049630194, 10020084); // Rune of Haste [5]
+    
+    InitializeEvent(90, 10048, 1049630200, 10020090); // Rune of Levity [1]
+    InitializeEvent(91, 10048, 1049630201, 10020091); // Rune of Levity [2]
+    InitializeEvent(92, 10048, 1049630202, 10020092); // Rune of Levity [3]
+    InitializeEvent(93, 10048, 1049630203, 10020093); // Rune of Levity [4]
+    InitializeEvent(94, 10048, 1049630204, 10020094); // Rune of Levity [5]
+    
+    
+});
+
+// Visibility - Basic Rune
+$Event(10041, Default, function(X0_4, X4_4) {
+    SetEventFlag(0, X4_4, OFF);
+    
+    if(!EventFlag(X0_4))
+    {
+        SetEventFlag(0, X4_4, ON);
+    }
+});
+
+// Visibility - Tiered Rune - Display if previous rune is unlocked
+$Event(10042, Default, function(X0_4, X4_4, X8_4) {
+    SetEventFlag(0, X4_4, OFF);
+    
+    if(!EventFlag(X0_4) && EventFlag(X8_4)) // Show if previous tier is set to ON
+    {
+        SetEventFlag(0, X4_4, ON);
+    }
+});
+
+// Rune - Set Flag on Purchase
+$Event(10045, Default, function(X0_4, X4_4) {
+    WaitFor(PlayerHasItem(ItemType.Goods, X4_4));
+    SetEventFlag(0, X0_4, ON);
+});
+
+// Rune - Give Item on Respawn if Flag is ON
+$Event(10046, Default, function(X0_4, X4_4) {
+    if(EventFlag(X0_4))
+    {
+        // Ignore if the item already exists
+        if(!PlayerHasItem(ItemType.Goods, X4_4))
+        {
+            DirectlyGivePlayerItem(ItemType.Goods, X4_4, 6000, 4);
+        }
+    }
+});
+
+// Rune Effect - On Load
+$Event(10048, Default, function(X0_4, X4_4) {
+    if(EventFlag(X0_4))
+    {
+        SetSpEffect(10000, X4_4);
+    }
+    
+    WaitFixedTimeSeconds(1.0);
+    
+    RestartEvent();
+});
+
+//-----------------------------------
 // Deathtrap Dungeon: Debug
 //-----------------------------------
 $Event(15000, Default, function() {
+    EndEvent();
     
+    DirectlyGivePlayerItem(ItemType.Goods, 2919, 6000, 4);
+    DirectlyGivePlayerItem(ItemType.Goods, 2919, 6000, 4);
+    DirectlyGivePlayerItem(ItemType.Goods, 2919, 6000, 4);
+    DirectlyGivePlayerItem(ItemType.Goods, 2919, 6000, 4);
+    DirectlyGivePlayerItem(ItemType.Goods, 2919, 6000, 4);
+    DirectlyGivePlayerItem(ItemType.Goods, 2919, 6000, 4);
 });

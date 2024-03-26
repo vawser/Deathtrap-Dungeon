@@ -1,0 +1,41 @@
+# Manuals
+Purchased from the Blacksmith. Used to unlock the more powerful version of each successor:
+
+Manual of the Accursed
+Manual of the Knight
+Manual of the Warlord
+Manual of the Assassin
+Manual of the Mercenary
+Manual of the Shinobi
+Manual of the Ranger
+Manual of the Sorcerer
+Manual of the Priest
+Manual of the Noble
+
+# Whetstones
+Purchased from the Blacksmith. Used to boost X type of damage output.
+
+# Physical
+Sharpstone
+Large Sharpstone
+Pure Sharpstone
+
+# Magic
+Moonstone
+Large Moonstone
+Pure Moonstone
+
+# Fire
+Flamestone
+Large Flamestone
+Pure Flamestone
+
+# Lightning
+Sparkstone
+Large Sparkstone
+Pure Sparkstone
+
+# Holy
+Holystone
+Large Holystone
+Pure Holystone

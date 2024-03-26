@@ -1,0 +1,164 @@
+Treasure:
+ Roll for:
+  Category
+  Item
+  [o] Infusion
+  
+# Categories
+Dagger
+Straight Sword
+Greatsword
+Colossal Sword
+Curved Sword
+Curved Greatsword
+Katana
+Twinblade
+Thrusting Sword
+Heavy Thrusting Sword
+Axe
+Greataxe
+Hammer
+Great Hammer
+Flail
+Spear
+Heavy Spear
+Halberd
+Scythe
+Fist
+Claw
+Whip
+Colossal Weapon
+Light Bow
+Bow
+Greatbow
+Crossbow
+Ballista
+Staff
+Seal
+Small Shield
+Medium Shield
+Greatshield
+Torch
+Sorceries
+Incantations
+  
+# Infusions
+0 Normal
+100 Heavy
+200 Keen
+300 Quality
+400 Fire
+500 Flame Art
+600 Lightning
+700 Sacred
+800 Magic
+900 Cold
+1000 Poison
+1100 Blood
+1200 Occult
+
+# Daggers
+1000000,Dagger
+1020000,Parrying Dagger
+1030000,Misericorde
+1040000,Reduvia
+1050000,Crystal Knife
+1060000,Celebrant's Sickle
+1070000,Glintstone Kris
+1080000,Scorpion's Stinger
+1090000,Great Knife
+1100000,Wakizashi
+1130000,Ivory Sickle
+1110000,Cinquedea
+1140000,Bloodstained Dagger
+1150000,Erdsteel Dagger
+1160000,Blade of Calling
+
+# Straight Sword
+2000000,Longsword
+2010000,Short Sword
+2020000,Broadsword
+2040000,Lordsworn's Straight Sword
+2050000,Weathered Straight Sword
+2060000,Ornamental Straight Sword
+2070000,Golden Epitaph
+2110000,Coded Sword
+2140000,Sword of Night and Flame
+2150000,Crystal Sword
+2180000,Carian Knight's Sword
+2190000,Sword of St. Trina
+2210000,Cane Sword
+2200000,Miquellan Knight's Sword
+2220000,Regalia of Eochaid
+2230000,Noble's Slender Sword
+2240000,Warhawk's Talon
+2250000,Lazuli Glintstone Sword
+2260000,Rotten Crystal Sword
+
+# Greatsword
+
+# Colossal Sword
+
+# Curved Sword
+
+# Curved Greatsword
+
+# Katana
+
+# Twinblade
+
+# Thrusting Sword
+
+# Heavy Thrusting Sword
+
+# Axe
+
+# Greataxe
+
+# Hammer
+
+# Great Hammer
+
+# Flail
+
+# Spear
+
+# Heavy Spear
+
+# Halberd
+
+# Scythe
+
+# Fist
+
+# Claw
+
+# Whip
+
+# Colossal Weapon
+
+# Light Bow
+
+# Bow
+
+# Greatbow
+
+# Crossbow
+
+# Ballista
+
+# Staff
+
+# Seal
+
+# Torch
+
+# Small Shield
+
+# Medium Shield
+
+# Greatshield
+
+# Sorceries
+
+# Incantations
