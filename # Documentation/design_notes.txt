@@ -22,4 +22,3 @@ Treasure:
 Dungeons:
  Each level will have 3 sets of enemies: Default, Alt 1 and Alt 2. Which are used will be randomised each time.
  
- 

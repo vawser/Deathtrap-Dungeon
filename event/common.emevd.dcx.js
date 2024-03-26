@@ -6575,18 +6575,70 @@ $Event(9950, Default, function(X0_4, X4_4) {
 $Event(10000, Default, function() {
     InitializeEvent(0, 10001, 0); // Trial of Champions warp
     
-    InitializeEvent(0, 10010, 0); // Default Effects
-    InitializeEvent(0, 10020, 0); // Class Skills
+    //****************
+    // Defaults
+    //****************
+    InitializeEvent(0, 10002, 0); // Default Effects
     
-    InitializeEvent(0, 10100, 0); // Level Warp logic
+    //****************
+    // Class Skills
+    //****************
+    InitializeEvent(0, 10003, 300000, 10010000); // Wretch
+    InitializeEvent(1, 10003, 300001, 10010010); // Accursed
+    InitializeEvent(2, 10003, 300010, 10010100); // Soldier
+    InitializeEvent(3, 10003, 300011, 10010110); // Knight
+    InitializeEvent(4, 10003, 300020, 10010200); // Barbarian 1
+    InitializeEvent(5, 10003, 300020, 10010201); // Barbarian 2
+    InitializeEvent(6, 10003, 300020, 10010202); // Barbarian 3
+    InitializeEvent(7, 10003, 300020, 10010203); // Barbarian 4
+    InitializeEvent(8, 10003, 300020, 10010204); // Barbarian 5
+    InitializeEvent(9, 10003, 300021, 10010210); // Warlord 1
+    InitializeEvent(10, 10003, 300021, 10010211); // Warlord 2
+    InitializeEvent(11, 10003, 300021, 10010212); // Warlord 3
+    InitializeEvent(12, 10003, 300021, 10010213); // Warlord 4
+    InitializeEvent(13, 10003, 300021, 10010214); // Warlord 5
+    InitializeEvent(14, 10003, 300030, 10010300); // Knave 1
+    InitializeEvent(15, 10003, 300030, 10010301); // Knave 2
+    InitializeEvent(16, 10003, 300031, 10010310); // Assassin 1
+    InitializeEvent(17, 10003, 300031, 10010311); // Assassin 2
+    InitializeEvent(18, 10003, 300040, 10010400); // Exile
+    InitializeEvent(19, 10003, 300041, 10010410); // Mercenary
+    InitializeEvent(20, 10003, 300050, 10010500); // Samurai
+    InitializeEvent(21, 10003, 300051, 10010510); // Shinobi
+    InitializeEvent(22, 10003, 300060, 10010600); // Archer
+    InitializeEvent(23, 10003, 300061, 10010610); // Ranger
+    InitializeEvent(24, 10003, 300070, 10010700); // Apprentice
+    InitializeEvent(25, 10003, 300071, 10010710); // Sorcerer
+    InitializeEvent(26, 10003, 300080, 10010800); // Disciple
+    InitializeEvent(27, 10003, 300081, 10010810); // Priest
+    InitializeEvent(28, 10003, 300090, 10010900); // Apostle
+    InitializeEvent(29, 10003, 300091, 10010910); // Noble
     
-    InitializeEvent(0, 10200, 0); // Corpse Treasure logic
+    //****************
+    // Enemy Group Effects
+    //****************
+    InitializeEvent(0, 10004, 10010900, 10010901, 400005010); // Apostle: Godkiller
+    InitializeEvent(1, 10004, 10010910, 10010911, 400005010); // Noble: Godkiller
     
-    InitializeEvent(0, 10400, 0); // Enemy Level scaling logic
-    InitializeEvent(0, 10401, 0); // Godkiller debuff
+    //****************
+    // Level Warp Logic
+    //****************
+    InitializeEvent(0, 10010, 0);
+    
+    //****************
+    // Treasure Logic
+    //****************
+    InitializeEvent(0, 10020, 0);
+    
+    //****************
+    // Enemy Scaling
+    //****************
+    InitializeEvent(0, 10030, 0);
 });
 
+//-----------------------------------
 // Trial of Champions Warp
+//-----------------------------------
 $Event(10001, Default, function() {
     WaitFor(EventFlag(1047610010));
     SetEventFlag(0, 1047610010, OFF);
@@ -6594,146 +6646,33 @@ $Event(10001, Default, function() {
     WarpPlayer(45, 2, 0, 0, 45020200, -1);
 });
 
+//-----------------------------------
 // Default Effects
-$Event(10010, Default, function() {
+//-----------------------------------
+$Event(10002, Restart, function() {
     SetSpEffect(10000, 10000040);
 });
 
-// Class Skills
-$Event(10020, Restart, function() {
-    // Wretch
-    if(PlayerHasItem(ItemType.Goods, 300000))
-    {
-        SetSpEffect(10000, 10010000);
-    }
-    
-    // Accursed
-    if(PlayerHasItem(ItemType.Goods, 300001))
-    {
-        SetSpEffect(10000, 10010010);
-    }
-    
-    // Soldier
-    if(PlayerHasItem(ItemType.Goods, 300010))
-    {
-        SetSpEffect(10000, 10010100);
-    }
-    
-    // Knight
-    if(PlayerHasItem(ItemType.Goods, 300011))
-    {
-        SetSpEffect(10000, 10010110);
-    }
-    
-    // Barbarian
-    if(PlayerHasItem(ItemType.Goods, 300020))
-    {
-        SetSpEffect(10000, 10010200);
-        SetSpEffect(10000, 10010201);
-        SetSpEffect(10000, 10010202);
-        SetSpEffect(10000, 10010203);
-        SetSpEffect(10000, 10010204);
-    }
-    
-    // Warlord
-    if(PlayerHasItem(ItemType.Goods, 300021))
-    {
-        SetSpEffect(10000, 10010210);
-        SetSpEffect(10000, 10010211);
-        SetSpEffect(10000, 10010212);
-        SetSpEffect(10000, 10010213);
-        SetSpEffect(10000, 10010214);
-    }
-    
-    // Knave
-    if(PlayerHasItem(ItemType.Goods, 300030))
-    {
-        SetSpEffect(10000, 10010300);
-        SetSpEffect(10000, 10010301);
-    }
-    
-    // Assassin
-    if(PlayerHasItem(ItemType.Goods, 300031))
-    {
-        SetSpEffect(10000, 10010310);
-        SetSpEffect(10000, 10010311);
-    }
-    
-    // Exile
-    if(PlayerHasItem(ItemType.Goods, 300040))
-    {
-        SetSpEffect(10000, 10010400);
-    }
-    
-    // Mercenary
-    if(PlayerHasItem(ItemType.Goods, 300041))
-    {
-        SetSpEffect(10000, 10010410);
-    }
-    
-    // Samurai
-    if(PlayerHasItem(ItemType.Goods, 300050))
-    {
-        SetSpEffect(10000, 10010500);
-    }
-    
-    // Shinobi
-    if(PlayerHasItem(ItemType.Goods, 300051))
-    {
-        SetSpEffect(10000, 10010510);
-    }
-    
-    // Archer
-    if(PlayerHasItem(ItemType.Goods, 300060))
-    {
-        SetSpEffect(10000, 10010600);
-    }
-    
-    // Ranger
-    if(PlayerHasItem(ItemType.Goods, 300061))
-    {
-        SetSpEffect(10000, 10010610);
-    }
-    
-    // Apprentice
-    if(PlayerHasItem(ItemType.Goods, 300070))
-    {
-        SetSpEffect(10000, 10010700);
-    }
-    
-    // Sorcerer
-    if(PlayerHasItem(ItemType.Goods, 300071))
-    {
-        SetSpEffect(10000, 10010710);
-    }
-    
-    // Disciple
-    if(PlayerHasItem(ItemType.Goods, 300080))
-    {
-        SetSpEffect(10000, 10010800);
-    }
-    
-    // Priest
-    if(PlayerHasItem(ItemType.Goods, 300081))
-    {
-        SetSpEffect(10000, 10010810);
-    }
-    
-    // Apostle
-    if(PlayerHasItem(ItemType.Goods, 300090))
-    {
-        SetSpEffect(10000, 10010900);
-    }
-    
-    // Noble
-    if(PlayerHasItem(ItemType.Goods, 300091))
-    {
-        SetSpEffect(10000, 10010910);
-    }
+//-----------------------------------
+// Class Skill
+//-----------------------------------
+$Event(10003, Restart, function(X0_4, X4_4) {
+    WaitFor(PlayerHasItem(ItemType.Goods, X0_4));
+    SetSpEffect(10000, X4_4);
 });
 
-// Level Warp logic
-$Event(10100, Default, function() {
+//-----------------------------------
+// Enemy Group Effect
+//-----------------------------------
+$Event(10004, Restart, function(X0_4, X4_4, X8_4) {
+    WaitFor(CharacterHasSpEffect(10000, X0_4, 0, 1))
+    SetSpEffect(X8_4, X4_4);
+});
+
+//-----------------------------------
+// Level Warp Logic
+//-----------------------------------
+$Event(10010, Default, function() {
     EndIf(EventFlag(1047590011));
     
     WaitFor(EventFlag(1047590010));
@@ -6774,27 +6713,27 @@ $Event(10100, Default, function() {
     RandomlySetEventFlagInRange(1047590200, 1047590220, ON);
     
     // First Cascade
-    InitializeEvent(0, 10101, 1047590100, 1047590200, 1047590201); // Tombsward
-    InitializeEvent(1, 10101, 1047590101, 1047590201, 1047590202); // Impaler
-    InitializeEvent(2, 10101, 1047590102, 1047590202, 1047590203); // Stormfoot
-    InitializeEvent(3, 10101, 1047590103, 1047590203, 1047590204); // Road's End
-    InitializeEvent(4, 10101, 1047590104, 1047590204, 1047590205); // Murkwater
-    InitializeEvent(5, 10101, 1047590105, 1047590205, 1047590206); // Black Knife
-    InitializeEvent(6, 10101, 1047590106, 1047590206, 1047590207); // Cliffbottom
-    InitializeEvent(7, 10101, 1047590107, 1047590207, 1047590208); // Wyndham
-    InitializeEvent(8, 10101, 1047590108, 1047590208, 1047590209); // Sainted Hero's Grave
-    InitializeEvent(9, 10101, 1047590109, 1047590209, 1047590210); // Gelmir Hero's Grave
-    InitializeEvent(10, 10101, 1047590110, 1047590210, 1047590211); // Azuria Hero's Grave
-    InitializeEvent(11, 10101, 1047590111, 1047590211, 1047590212); // Deathtouched
-    InitializeEvent(12, 10101, 1047590112, 1047590212, 1047590213); // Unsightly
-    InitializeEvent(13, 10101, 1047590113, 1047590213, 1047590214); // Auriza Side Tomb
-    InitializeEvent(14, 10101, 1047590114, 1047590214, 1047590215); // Minor Erdtree
-    InitializeEvent(15, 10101, 1047590115, 1047590215, 1047590216); // Caelid
-    InitializeEvent(16, 10101, 1047590116, 1047590216, 1047590217); // War-Dead
-    InitializeEvent(17, 10101, 1047590117, 1047590217, 1047590218); // Giant-Conquering
-    InitializeEvent(18, 10101, 1047590118, 1047590218, 1047590219); // Giants' Mountaintop
-    InitializeEvent(19, 10101, 1047590119, 1047590219, 1047590220); // Consecrated Snowfield
-    InitializeEvent(20, 10101, 1047590120, 1047590220, 1047590200); // Hidden Path
+    InitializeEvent(0, 10011, 1047590100, 1047590200, 1047590201); // Tombsward
+    InitializeEvent(1, 10011, 1047590101, 1047590201, 1047590202); // Impaler
+    InitializeEvent(2, 10011, 1047590102, 1047590202, 1047590203); // Stormfoot
+    InitializeEvent(3, 10011, 1047590103, 1047590203, 1047590204); // Road's End
+    InitializeEvent(4, 10011, 1047590104, 1047590204, 1047590205); // Murkwater
+    InitializeEvent(5, 10011, 1047590105, 1047590205, 1047590206); // Black Knife
+    InitializeEvent(6, 10011, 1047590106, 1047590206, 1047590207); // Cliffbottom
+    InitializeEvent(7, 10011, 1047590107, 1047590207, 1047590208); // Wyndham
+    InitializeEvent(8, 10011, 1047590108, 1047590208, 1047590209); // Sainted Hero's Grave
+    InitializeEvent(9, 10011, 1047590109, 1047590209, 1047590210); // Gelmir Hero's Grave
+    InitializeEvent(10, 10011, 1047590110, 1047590210, 1047590211); // Azuria Hero's Grave
+    InitializeEvent(11, 10011, 1047590111, 1047590211, 1047590212); // Deathtouched
+    InitializeEvent(12, 10011, 1047590112, 1047590212, 1047590213); // Unsightly
+    InitializeEvent(13, 10011, 1047590113, 1047590213, 1047590214); // Auriza Side Tomb
+    InitializeEvent(14, 10011, 1047590114, 1047590214, 1047590215); // Minor Erdtree
+    InitializeEvent(15, 10011, 1047590115, 1047590215, 1047590216); // Caelid
+    InitializeEvent(16, 10011, 1047590116, 1047590216, 1047590217); // War-Dead
+    InitializeEvent(17, 10011, 1047590117, 1047590217, 1047590218); // Giant-Conquering
+    InitializeEvent(18, 10011, 1047590118, 1047590218, 1047590219); // Giants' Mountaintop
+    InitializeEvent(19, 10011, 1047590119, 1047590219, 1047590220); // Consecrated Snowfield
+    InitializeEvent(20, 10011, 1047590120, 1047590220, 1047590200); // Hidden Path
     
     // Second Cascade: this is required so that if the first cascade runs to the end
     // of the list, the list can continue the cascade back at the start
@@ -6802,27 +6741,27 @@ $Event(10100, Default, function() {
     // e.g. Random flag hits Deathtouched, however all dungeons after Deathtouched
     // have already been visited. Therefore, we want it to cascade back
     // round to the start, and hit the non-visited dungeon.
-    InitializeEvent(21, 10101, 1047590100, 1047590200, 1047590201); // Tombsward
-    InitializeEvent(22, 10101, 1047590101, 1047590201, 1047590202); // Impaler
-    InitializeEvent(23, 10101, 1047590102, 1047590202, 1047590203); // Stormfoot
-    InitializeEvent(24, 10101, 1047590103, 1047590203, 1047590204); // Road's End
-    InitializeEvent(25, 10101, 1047590104, 1047590204, 1047590205); // Murkwater
-    InitializeEvent(26, 10101, 1047590105, 1047590205, 1047590206); // Black Knife
-    InitializeEvent(27, 10101, 1047590106, 1047590206, 1047590207); // Cliffbottom
-    InitializeEvent(28, 10101, 1047590107, 1047590207, 1047590208); // Wyndham
-    InitializeEvent(29, 10101, 1047590108, 1047590208, 1047590209); // Sainted Hero's Grave
-    InitializeEvent(30, 10101, 1047590109, 1047590209, 1047590210); // Gelmir Hero's Grave
-    InitializeEvent(31, 10101, 1047590110, 1047590210, 1047590211); // Azuria Hero's Grave
-    InitializeEvent(32, 10101, 1047590111, 1047590211, 1047590212); // Deathtouched
-    InitializeEvent(33, 10101, 1047590112, 1047590212, 1047590213); // Unsightly
-    InitializeEvent(34, 10101, 1047590113, 1047590213, 1047590214); // Auriza Side Tomb
-    InitializeEvent(35, 10101, 1047590114, 1047590214, 1047590215); // Minor Erdtree
-    InitializeEvent(36, 10101, 1047590115, 1047590215, 1047590216); // Caelid
-    InitializeEvent(37, 10101, 1047590116, 1047590216, 1047590217); // War-Dead
-    InitializeEvent(38, 10101, 1047590117, 1047590217, 1047590218); // Giant-Conquering
-    InitializeEvent(39, 10101, 1047590118, 1047590218, 1047590219); // Giants' Mountaintop
-    InitializeEvent(40, 10101, 1047590119, 1047590219, 1047590220); // Consecrated Snowfield
-    InitializeEvent(41, 10101, 1047590120, 1047590220, 1047590200); // Hidden Path 
+    InitializeEvent(21, 10011, 1047590100, 1047590200, 1047590201); // Tombsward
+    InitializeEvent(22, 10011, 1047590101, 1047590201, 1047590202); // Impaler
+    InitializeEvent(23, 10011, 1047590102, 1047590202, 1047590203); // Stormfoot
+    InitializeEvent(24, 10011, 1047590103, 1047590203, 1047590204); // Road's End
+    InitializeEvent(25, 10011, 1047590104, 1047590204, 1047590205); // Murkwater
+    InitializeEvent(26, 10011, 1047590105, 1047590205, 1047590206); // Black Knife
+    InitializeEvent(27, 10011, 1047590106, 1047590206, 1047590207); // Cliffbottom
+    InitializeEvent(28, 10011, 1047590107, 1047590207, 1047590208); // Wyndham
+    InitializeEvent(29, 10011, 1047590108, 1047590208, 1047590209); // Sainted Hero's Grave
+    InitializeEvent(30, 10011, 1047590109, 1047590209, 1047590210); // Gelmir Hero's Grave
+    InitializeEvent(31, 10011, 1047590110, 1047590210, 1047590211); // Azuria Hero's Grave
+    InitializeEvent(32, 10011, 1047590111, 1047590211, 1047590212); // Deathtouched
+    InitializeEvent(33, 10011, 1047590112, 1047590212, 1047590213); // Unsightly
+    InitializeEvent(34, 10011, 1047590113, 1047590213, 1047590214); // Auriza Side Tomb
+    InitializeEvent(35, 10011, 1047590114, 1047590214, 1047590215); // Minor Erdtree
+    InitializeEvent(36, 10011, 1047590115, 1047590215, 1047590216); // Caelid
+    InitializeEvent(37, 10011, 1047590116, 1047590216, 1047590217); // War-Dead
+    InitializeEvent(38, 10011, 1047590117, 1047590217, 1047590218); // Giant-Conquering
+    InitializeEvent(39, 10011, 1047590118, 1047590218, 1047590219); // Giants' Mountaintop
+    InitializeEvent(40, 10011, 1047590119, 1047590219, 1047590220); // Consecrated Snowfield
+    InitializeEvent(41, 10011, 1047590120, 1047590220, 1047590200); // Hidden Path 
     
     WaitFixedTimeSeconds(0.5);
     
@@ -7019,8 +6958,10 @@ $Event(10100, Default, function() {
     }
 });
 
-// Logic
-$Event(10101, Default, function(X0_4, X4_4, X8_4) {
+//-----------------------------------
+// Level Warp Roll Logic
+//-----------------------------------
+$Event(10011, Default, function(X0_4, X4_4, X8_4) {
     // Trigger
     if(EventFlag(X4_4))
     {
@@ -7038,13 +6979,22 @@ $Event(10101, Default, function(X0_4, X4_4, X8_4) {
     }
 });
 
-// Treasure logic
-$Event(10200, Restart, function() {
+//-----------------------------------
+// Treasure Logic
+//-----------------------------------
+$Event(10020, Restart, function() {
+    WaitFor(CharacterHasSpEffect(10000, 10000050, 0, 1));
+    DisplayBanner(TextBannerType.BloodyFingerVanquished);
     
+    WaitFixedTimeSeconds(1.0);
+    
+    RestartEvent();
 });
 
-// Enemy level scaling
-$Event(10400, Restart, function() {
+//-----------------------------------
+// Enemy level Scaling
+//-----------------------------------
+$Event(10030, Restart, function() {
     SetSpEffect(400005000, 10000100);
     
     if(EventFlag(1047590300))
@@ -7134,25 +7084,6 @@ $Event(10400, Restart, function() {
     
     // Restore HP so they are at max HP after the adjustments
     SetSpEffect(400005000, 10001030);
-});
-
-// Godkiller debuff
-$Event(10401, Restart, function() {
-    // Apostle
-    if(CharacterHasSpEffect(10000, 10010900, 0, 1))
-    {
-        SetSpEffect(400005010, 10010901);
-    }
-    
-    // Noble
-    if(CharacterHasSpEffect(10000, 10010910, 0, 1))
-    {
-        SetSpEffect(400005010, 10010911);
-    }
-    
-    WaitFixedTimeSeconds(1);
-    
-    RestartEvent();
 });
 
 //-----------------------------------

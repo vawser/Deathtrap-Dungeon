@@ -6826,14 +6826,25 @@ L2:
 //--------------------------------------------
 // Deathtrap Dungeon
 //--------------------------------------------
+//-----------------------------------
 // Start - Level Warp
+//-----------------------------------
 $Event(98006000, Restart, function() {
-    // Trigger Level Warp logic
-    SetEventFlag(0, 1047590010, ON);
+    SetEventFlag(0, 1047590010, ON); // Trigger Level Warp logic
 });
 
+//-----------------------------------
+// Reset Progression
+//-----------------------------------
+$Event(98006001, Restart, function() {
+    BatchSetEventFlags(1047590100, 1047590120, OFF); // Dungeon Progression
+    BatchSetEventFlags(1047590200, 1047590220, OFF); // Triggers
+    BatchSetEventFlags(1047590300, 1047590320, OFF); // Dungeon Level Scaling
+});
 
+//-----------------------------------
 // Boss - Level Warp
+//-----------------------------------
 $Event(98006010, Default, function(X0_4, X4_4, X8_4, X12_4) {
     EndIf(!PlayerIsInOwnWorld());
     WaitFor(PlayerIsInOwnWorld() && EventFlag(X0_4));
@@ -6857,3 +6868,5 @@ L1:
     // Trigger Level Warp logic
     SetEventFlag(0, 1047590010, ON);
 });
+
+
