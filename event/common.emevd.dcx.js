@@ -6622,6 +6622,9 @@ $Event(10000, Default, function() {
     // Runes
     InitializeEvent(0, 10040, 0);
     
+    // Class Unlocks
+    InitializeEvent(0, 10050, 0);
+    
     // Clear the status bars
     WaitFixedTimeSeconds(0.1);
     
@@ -7387,6 +7390,54 @@ $Event(10048, Default, function(X0_4, X4_4) {
     WaitFixedTimeSeconds(1.0);
     
     RestartEvent();
+});
+
+//-----------------------------------
+// Class Unlocks
+//-----------------------------------
+$Event(10050, Default, function() {
+    // Unlock Advanced class on Item Purchase
+    InitializeEvent(0, 10051, 303000, 1047610100); // Accursed
+    InitializeEvent(1, 10051, 303010, 1047610101); // Knight
+    InitializeEvent(2, 10051, 303020, 1047610102); // Warlord
+    InitializeEvent(3, 10051, 303030, 1047610103); // Assassin
+    InitializeEvent(4, 10051, 303040, 1047610104); // Mercenary
+    InitializeEvent(5, 10051, 303050, 1047610105); // Shinobi
+    InitializeEvent(6, 10051, 303060, 1047610106); // Ranger
+    InitializeEvent(7, 10051, 303070, 1047610107); // Sorcerer
+    InitializeEvent(8, 10051, 303080, 1047610108); // Priest
+    InitializeEvent(9, 10051, 303090, 1047610109); // Noble
+    
+    // Give Item for Advanced Class
+    InitializeEvent(0, 10052, 303000, 1047610100); // Accursed
+    InitializeEvent(1, 10052, 303010, 1047610101); // Knight
+    InitializeEvent(2, 10052, 303020, 1047610102); // Warlord
+    InitializeEvent(3, 10052, 303030, 1047610103); // Assassin
+    InitializeEvent(4, 10052, 303040, 1047610104); // Mercenary
+    InitializeEvent(5, 10052, 303050, 1047610105); // Shinobi
+    InitializeEvent(6, 10052, 303060, 1047610106); // Ranger
+    InitializeEvent(7, 10052, 303070, 1047610107); // Sorcerer
+    InitializeEvent(8, 10052, 303080, 1047610108); // Priest
+    InitializeEvent(9, 10052, 303090, 1047610109); // Noble
+});
+    
+// Rune - Set Flag on Purchase
+$Event(10051, Default, function(X0_4, X4_4) {
+    WaitFor(PlayerHasItem(ItemType.Goods, X0_4));
+    SetEventFlag(0, X4_4, ON);
+    SetEventFlag(0, 1047610015, ON);
+});
+
+// Rune - Give Item on Respawn if Flag is ON
+$Event(10052, Default, function(X0_4, X4_4) {
+    if(EventFlag(X4_4))
+    {
+        // Ignore if the item already exists
+        if(!PlayerHasItem(ItemType.Goods, X0_4))
+        {
+            DirectlyGivePlayerItem(ItemType.Goods, X0_4, 6000, 4);
+        }
+    }
 });
 
 //-----------------------------------

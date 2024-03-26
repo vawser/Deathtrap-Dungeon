@@ -6863,10 +6863,9 @@ $Event(98006010, Default, function(X0_4, X4_4, X8_4, X12_4) {
     }
 L1:
     ForceAnimationPlayback(10000, 60460, false, false, false);
+    SetSpEffect(10000, 10001030); // 100% HP Restore
     WaitFixedTimeSeconds(2.5);
     
     // Trigger Level Warp logic
     SetEventFlag(0, 1047590010, ON);
 });
-
-
